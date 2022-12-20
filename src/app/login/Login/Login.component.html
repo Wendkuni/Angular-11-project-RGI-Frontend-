@@ -1,0 +1,231 @@
+
+<div class="body"  >
+
+    <mat-card class="mat-card-description">
+      <h1 class="chapeau">
+        <b>BIENVENU SUR</b>
+      </h1>
+      <h1 class="insigne">RGI</h1>
+      <h2 class="infos"><b>Référentiel Général d'Interoperabilité</b></h2>
+      <p class="describ">Referentiel unique de codification territorial et administrative des localité du burkina faso</p>
+    </mat-card>
+  
+
+  <mat-card>
+    
+        <mat-card-header >
+          <mat-card-title classe = "head">
+            Connectez vous à RGI
+          </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="user" #frm="ngForm">
+          <mat-form-field class="full-width-input" appearance = "outline"  >
+            <mat-label>Nom d'utilisateur</mat-label>
+            <input matInput placeholder="Nom d'utilisateur"  formControlName="username" required>
+            <!-- <mat-icon  matPrefix >account_circle</mat-icon> -->
+            <mat-error *ngIf="user.get('username').touched && user.get('username').invalid">
+              <p>Champs obligatoire, cet champs doit pas être vide</p>
+            </mat-error>
+          </mat-form-field><br/>
+  
+          <mat-form-field class="full-width-input" appearance = "outline"  >
+            <mat-label>Mot de passe</mat-label>
+            <input matInput placeholder="Mot de passe"  [type]="hide ? 'password' : 'text'" formControlName="password" required>
+            <button mat-icon-button matSuffix (click)="hide = !hide"  [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+            <!-- <mat-icon  matPrefix >unlock</mat-icon> -->
+            <mat-error *ngIf="user.get('password').touched && user.get('password').invalid"> 
+              <p>Champs obligatoire, cet champs doit pas être vide</p>
+            </mat-error>
+          </mat-form-field>
+        </form>
+        <mat-card-actions>
+          <div class="h" >
+            <a routerLink='/Login/ForgetPassword'>Mot de passe oublié? </a>
+          </div>
+    
+            <button class="example-button-row" mat-raised-button  (click)="Onsubmit()">Se connecter</button>
+            <br/><h2 class="h2">
+              <strong>Vous n'avez pas de compte?</strong>
+            </h2>
+    
+            <button class="example-button-row2" mat-raised-button routerLink='/Login/Inscription' >Créer compte</button>
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div fxLayoutAlign="center" class="contactEn">
+    <mat-card [fxFlex.xs]="100" [fxFlex.sm]="100" [fxFlex.md]="100" [fxFlex.lg]="90" [fxFlex.xl]="90">
+        <h1 style="background-color:  darkorange; color: aliceblue; font-weight: bold; padding: 5px;">A QUOI SERT LA PLATFORME RGI ?</h1>
+            
+        <mat-card-content style="text-align: left;">
+                          Le référentiel général d’interopérabilité <strong>(RGI)</strong> est un cadre de recommandations
+                référençant des normes et standards qui favorisent l’interopérabilité des systèmes
+                d'information de l'administration.
+                Ces recommandations constituent les objectifs à atteindre pour favoriser
+                l'interopérabilité. Elles favorisent l'interopérabilité des systèmes d'information des
+                acteurs cherchant à interagir.
+                Le <strong>RGI</strong> fixe les règles techniques permettant d'assurer l'interopérabilité des systèmes
+                d'information. Il détermine notamment les répertoires de données, les normes et les
+                standards qui doivent être utilisés par les autorités administratives.
+                <p style="color: crimson;"><strong>Vous vous posez sûrement la question, qu'est ce que l'interopérabilité ?</strong></p>
+                De nos jours, les applications ainsi que le volume des données traitées sont
+                suffisamment nombreux et complexes.
+                Ces investissements importants nécessitent une maintenance et une gestion
+                adéquates pour leur pérennité. A cela s’ajoute le défi de l’intégration des TIC dans
+                tous les domaines de développement de notre pays, à travers la mise en œuvre des
+                cyberstratégies sectorielles et le développement d’une industrie locale de services
+                basés sur ces technologies.
+                Dans un contexte d’accroissement des échanges inter-partenaires, d’amélioration de
+                la qualité et de la performance de l’Administration et des entreprises, d’émergence de
+                nouveaux services rendus au public, les systèmes d’information, principaux vecteurs
+                de ces nouveautés, doivent adapter leurs propres capacités d’ouverture et d’échanges.
+                Il ne s’agit pas de refondre les systèmes d’information mais d’améliorer leurs
+                échanges en développant leur interopérabilité, c’est-à-dire, leur capacité à
+                fonctionner avec d’autres systèmes. En effet, la multiplication de flux d’informations
+                non harmonisés, en entrée et en sortie de ces systèmes, entraîne la conception
+                d’interfaces et d’infrastructures spécifiques non réutilisables et génère, de ce fait, des
+                coûts supplémentaires.
+                Pour faire face à cette problématique, NEBRATA  propose
+                un environnement de travail interopérable, favorisant la collaboration.
+        </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div fxLayoutAlign="center" class="contactEn">
+    <mat-card [fxFlex.xs]="100" [fxFlex.sm]="100" [fxFlex.md]="100" [fxFlex.lg]="90" [fxFlex.xl]="90">
+      <h1 style="background-color:  darkorange; color: aliceblue; font-weight: bold; padding: 5px;">COMMENT PROFITER PLEINEMENT DE RGI ?</h1>
+          
+      <mat-card-content style="text-align: left; font-size: 15px;">
+        Pour profiter de la platforme RGI vous devez disposer d'un compte selon votre profil. Pour disposer d'un compte vous devez vous inscrire 
+        via le formulaire en cliquant sur le boutton <strong> créer compte</strong>.
+        Après votre inscription, l'admin se chargera de vérifier votre profile et vous attribuera un compte selon votre profile. En effet RGI vous propose plusieurs 
+        comptes à savoir: 
+        <li> <strong style="color: forestgreen;"> Le compte Admin: </strong>  Ce compte permet de gérer les comptes de tout les utilisateurs voulant profiter de la 
+          platforme. Il a tout les droits sur l'applications c'est à dire activer, désactiver, supprimer et même créer un compte, il peut 
+          s'informer sur les localités territoriales sans toute fois les modifier" </li>
+          <br>
+          <li> <strong style="color: forestgreen;">Le compte MATDS: </strong>  Pour commencer MATDS fait référence au Ministère de l'Administration Térritoriale, de la Decentralisation
+          et de la cohesion Sociale. Le compte MATDS gère les localités térritoriales ce qui signifie, qu'il peut ajouter, supprimer, modifier une région
+          , une province, un arrondissements, une commune, une localité.
+        </li> 
+          <br>
+        <li> <strong style="color: forestgreen;"> Le compte Gouvernorat:</strong>  Ce compte donne la possibilité de consulter, d'ajouter, de supprimer et de modifier une province mais peut consulter les régions sans toute fois les modifier </li>
+          <br>
+        <li> <strong style="color: forestgreen;">Le compte Mairie:</strong>  Ce compte a la possibilité de consulter, modifier, supprimer, ajouter un arrondissement ou une localité </li>
+        <br>
+        <li> <strong style="color: forestgreen;">Le compte Haut-Commissaiat:</strong>  Ce compte donne le droit de consulter, de modifier, de supprimer, d'ajouter une commune et donne lapossibilité de consulter les regions, les provinces, 
+        les localités, les arrondissements</li>
+        <br>
+       <strong> Apres votre inscription, un mail vous sera envoyer contenant vos accès c'est à dire vos identifiant pour vous connecter 
+        à la plateforme.</strong>
+      </mat-card-content>
+  </mat-card>
+  </div>
+
+
+
+
+
+
+      <div fxLayout="row" fxLayout.lt-md="row wrap" fxLayoutGap.gt-sm="7px" fxLayoutAlign="center" class="contactEn">
+        <mat-card [fxFlex.xs]="100" [fxFlex.sm]="100" [fxFlex.md]="50" [fxFlex.lg]="45" [fxFlex.xl]="45">
+          <h1 style="background-color:  darkorange; color: aliceblue; font-weight: bold; padding: 5px;">TEAME LEAGUE</h1>
+          <mat-card-content>
+            <mat-list role="list">
+              <mat-list-item role="listitem"><mat-icon >perm_identity</mat-icon>TINTA ANTOINE WENDKUNI KONATE   ----  Developpeur Full-Stack Junior  ----</mat-list-item>
+              <br>
+              <mat-list-item role="listitem"><mat-icon >perm_identity</mat-icon>RICHARD WENDTOIN YAMEOGO   ----  Developpeur Full-Stack Junior  ----</mat-list-item>
+            </mat-list>
+          </mat-card-content>
+        </mat-card>
+        <mat-card [fxFlex.xs]="100" [fxFlex.sm]="100" [fxFlex.md]="50" [fxFlex.lg]="50" [fxFlex.xl]="50">
+          <h1 style="background-color:  darkorange; color: aliceblue; font-weight: bold; padding: 5px;">PRODUCT OWNER</h1>
+          <mat-card-content>
+            <mat-list role="list">
+              <mat-list-item role="listitem"><mat-icon >person</mat-icon>HALIDOU  ROUAMBA ---- Président Directeur Générale de NEBRATA-consulting and innovation ----</mat-list-item>
+              <br>
+              <mat-list-item role="listitem"><mat-icon >person</mat-icon>THIERRY TEWENDE KIMA   ----  Directeur Technique Full-Stack Senior à NEBRATA-consulting and innovation   ----</mat-list-item>
+            </mat-list>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div fxLayoutAlign="start" >
+        <mat-card [fxFlex.xs]="100" [fxFlex.sm]="100" [fxFlex.md]="100" [fxFlex.lg]="100" [fxFlex.xl]="100">
+            <h1 style="background-color:  darkorange; color: aliceblue; font-weight: bold; padding: 5px;">CONTACTS</h1>
+                
+            <mat-card-content>
+              <mat-list role="list">
+                <mat-list-item role="listitem"><mat-icon >web</mat-icon>www.nebrata.com</mat-list-item>
+                <mat-list-item role="listitem"><mat-icon >contact_mail</mat-icon>contact@nebrata.com</mat-list-item>
+                <mat-list-item role="listitem"><mat-icon >contact_phone</mat-icon>(+226) 75 55 90 91
+                </mat-list-item>
+                <mat-list-item role="listitem"><mat-icon >location_on</mat-icon>Av. Muammar Kaddafi, Ouaga 2000 Zone C – Porte 23, A côté de la CIL BP 5556 OUAGA CNT Ouagadougou
+                </mat-list-item>
+              </mat-list>
+            </mat-card-content>
+        </mat-card>
+      </div>
+
+      <!--
+      <div >
+        <mat-grid-list  cols="3" rowHeight="100px" gutterSize="120px" class="contact">
+          <div >
+          <mat-grid-tile rowspan="2" style="background-color:lavender" >
+            <mat-grid-tile-header style="background-color:  darkorange">CONTACTS</mat-grid-tile-header>
+            <mat-list role="list">
+              <mat-list-item role="listitem"><mat-icon >web</mat-icon>www.nebrata.com</mat-list-item>
+              <mat-list-item role="listitem"><mat-icon >contact_mail</mat-icon>contact@nebrata.com</mat-list-item>
+              <mat-list-item role="listitem"><mat-icon >contact_phone</mat-icon>(+226) 75 55 90 91
+              </mat-list-item>
+              <mat-list-item role="listitem"><mat-icon >location_on</mat-icon>Av. Muammar Kaddafi, Ouaga 2000 Zone C – Porte 23, A côté de la CIL BP 5556 OUAGA CNT Ouagadougou
+              </mat-list-item>
+            </mat-list>
+
+          </mat-grid-tile>
+        </div>
+        <div >
+          <mat-grid-tile rowspan="2" style="background-color:lavender">
+
+            <mat-grid-tile-header  style="background-color: darkorange">TEAME LEAGUE</mat-grid-tile-header>
+            <mat-list role="list">
+              <mat-list-item role="listitem"><mat-icon >perm_identity</mat-icon>TINTA ANTOINE WENDKUNI KONATE   ----  Developpeur Full-Stack Junior  ----</mat-list-item>
+              <br>
+              <mat-list-item role="listitem"><mat-icon >perm_identity</mat-icon>RICHARD WENDTOIN YAMEOGO   ----  Developpeur Full-Stack Junior  ----</mat-list-item>
+            </mat-list>
+
+        </mat-grid-tile>
+      </div>
+      <div >
+        <mat-grid-tile rowspan="2" style="background-color: lavender">
+
+          <mat-grid-tile-header  style="background-color: darkorange">PRODUCT OWNER</mat-grid-tile-header>
+          <mat-list role="list">
+            <mat-list-item role="listitem"><mat-icon >person</mat-icon>HALIDOU  ROUAMBA ---- Président Directeur Générale de NEBRATA-consulting and innovation ----</mat-list-item>
+            <br>
+            <mat-list-item role="listitem"><mat-icon >person</mat-icon>THIERRY TEWENDE KIMA   ----  Directeur Technique Full-Stack Senior à NEBRATA-consulting and innovation   ----</mat-list-item>
+          </mat-list>
+
+      </mat-grid-tile>
+    </div>
+        </mat-grid-list>
+      </div>
+      </div>-->
+      
+
+
+
+
+<mat-card-footer class="copyright"  >
+  <p >
+   RGI – Référentiel Générale d'Intéropérabilité – © Copyright 2020 Neb'Rata 
+  </p>
+</mat-card-footer>
+
+
+
+ 

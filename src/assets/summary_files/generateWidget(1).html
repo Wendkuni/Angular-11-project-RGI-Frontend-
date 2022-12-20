@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0585)https://ladesk.passaero.eu/scripts/generateWidget.php?v=5.19.5.10&t=1598268061&cwid=c5bc3caa&cwrt=C&cwt=onlineform&pt=&ref=https%3A%2F%2Ffr-bf.capago.eu%2Fbooking%2Fsummary%3Furl%3Dhttps%253A%2F%2Ffr-bf.capago.eu%2Fbooking%2Fsummary%2Ftravel_project_module%2F20200824-82EF368%2FTravelProject_getOnlineBookingDataDict%26url_access_token%3D20200824-154D65F3%26url_access_token_secret%3DCRAT-724640J08UX41WMCtoI4E8UklDWx2klQpvbTYYGRwYXnF45kHjnmlEt8QBbLuQotlEEwBEgU1OZu5ekPq4UqxUZzka1aGGTKc4C5RAgqHfFnTgo6k7spLlgmiqyejKkxzEYVa%26appointment_date%3D2020-08-31T15%253A15%253A00%252B00%253A00 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <meta name="robots" content="none">
+        <meta name="referrer" content="no-referrer">
+        <meta name="viewport" content="width=device-width">
+        <title></title>
+                    <link href="./contactform.css" rel="stylesheet" type="text/css">
+                        	<style>
+            	.ContactHeader {height:125px;}
+.ContactBody {top:125px;}
+
+  .CloseButton {background:url('data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2216px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2016%2016%22%20enable-background%3D%22new%200%200%2016%2016%22%20xml%3Aspace%3D%22preserve%22%3E%20%3Cpolygon%20points%3D%2216%2C2.528%2013.474%2C0%208%2C5.474%202.526%2C0%200%2C2.528%205.473%2C8%200%2C13.474%202.526%2C16%208%2C10.527%2013.474%2C16%2016%2C13.474%2010.526%2C8%20%22%2F%3E%20%3C%2Fsvg%3E') no-repeat; opacity:0.6; background-size:contain;}
+  .CloseButton:hover {opacity:0.9;}
+body {font-family:"Lucida grande","Lucida Sans Unicode",Arial, Verdana;}
+input, textarea {font-family:Arial,Verdana,Helvetica,Geneva,sans-serif;}
+.SuggestionVotesBox .Status {font-family:Arial,Verdana;}.ImLeButton.Send .buttonIcon:before,
+.ImLeButton.Chat .buttonIcon:before,
+.ImLeButton.Call .buttonIcon:before {
+	background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%20100%20100%22%20enable-background%3D%22new%200%200%20100%20100%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cstyle%20type%3D%22text%2Fcss%22%3E%0A%09.st0%7Bfill%3A%23FFFFFF%3B%7D%0A%3C%2Fstyle%3E%09%20%0A%3Cpolygon%20class%3D%22st0%22%20points%3D%2235.1%2C37.2%2035.1%2C47.2%2056.4%2C50%2035.1%2C52.8%2035.1%2C62.8%2064.9%2C50%20%22%2F%3E%0A%3C%2Fsvg%3E') no-repeat 35% center;
+	background-size: 100px 100px;
+}
+.ImLeButton.Send .buttonIcon,
+.ImLeButton.Chat .buttonIcon,
+.ImLeButton.Call .buttonIcon,
+.ImLeButton.SuccessCloseButton .buttonIcon {
+ 	background: #4466CC;
+}
+.ImLeButton.SuccessCloseButton .buttonIcon:before {
+	background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%2016%2016%22%20style%3D%22enable-background%3Anew%200%200%2016%2016%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cstyle%20type%3D%22text%2Fcss%22%3E%0A%09.st0%7Bfill%3A%23FFFFFF%3B%7D%0A%3C%2Fstyle%3E%0A%3Cg%3E%0A%09%3Cpath%20class%3D%22st0%22%20d%3D%22M16%2C1.6L14.4%2C0L8%2C6.4L1.6%2C0L0%2C1.6L6.4%2C8L0%2C14.4L1.6%2C16L8%2C9.6l6.4%2C6.4l1.6-1.6L9.6%2C8L16%2C1.6z%22%2F%3E%0A%3C%2Fg%3E%0A%3C%2Fsvg%3E') no-repeat center center;
+	background-size: 30px 30px;
+}
+.InputFileView .DiscardButton {
+	background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%2016%2016%22%20style%3D%22enable-background%3Anew%200%200%2016%2016%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cstyle%20type%3D%22text%2Fcss%22%3E%0A%09.st0%7Bfill%3A%239E9E9E%3B%7D%0A%3C%2Fstyle%3E%0A%3Cg%3E%0A%09%3Cpath%20class%3D%22st0%22%20d%3D%22M16%2C1.6L14.4%2C0L8%2C6.4L1.6%2C0L0%2C1.6L6.4%2C8L0%2C14.4L1.6%2C16L8%2C9.6l6.4%2C6.4l1.6-1.6L9.6%2C8L16%2C1.6z%22%2F%3E%0A%3C%2Fg%3E%0A%3C%2Fsvg%3E') no-repeat center center / contain;
+}
+.Kb-counterWithKb:before {background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%2016%2016%22%20style%3D%22enable-background%3Anew%200%200%2016%2016%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cstyle%20type%3D%22text%2Fcss%22%3E%0A%09.st0%7Bfill%3A%23FFFFFF%3B%7D%0A%3C%2Fstyle%3E%0A%3Cg%3E%0A%09%3Cg%3E%0A%09%09%3Cpath%20class%3D%22st0%22%20d%3D%22M2.9%2C8.8v2.9L8%2C14.5l5.1-2.7V8.8L8%2C11.7L2.9%2C8.8z%20M8%2C1.5L0%2C5.8l8%2C4.3l6.5-3.6v5.1H16V5.8L8%2C1.5z%22%2F%3E%0A%09%3C%2Fg%3E%0A%3C%2Fg%3E%0A%3C%2Fsvg%3E') no-repeat center center;}
+.Kb-counterWithKb {background: #4466CC}
+.KbSidePanel-icon, .PopupPanelClose {
+	background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%2016%2016%22%20enable-background%3D%22new%200%200%2016%2016%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cg%20opacity%3D%220.5%22%3E%0A%09%3Cpath%20fill%3D%22%23333333%22%20d%3D%22M12.8%2C1.6L11.2%2C0l-8%2C8l8%2C8l1.6-1.6L6.4%2C8L12.8%2C1.6z%22%2F%3E%0A%3C%2Fg%3E%0A%3C%2Fsvg%3E') no-repeat center center;
+}
+#kbCounter {background: #4466CC; color: #FFFFFF}
+.PopupPanelClose:hover{background-position: center center}
+.E_KbArticleBody {font-size: 14px;margin:0}
+.PopOutButton {
+	background:url('data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%2016%2016%22%20enable-background%3D%22new%200%200%2016%2016%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cstyle%3E%0A%20.st0%20%7Bfill%3A%23333333%7D%0A%3C%2Fstyle%3E%0A%3Cg%3E%0A%09%3Cpath%20class%3D%22st0%22%20d%3D%22M13.8%2C13.4H2.6V2.2h5.6V0.6H2.6C1.7%2C0.6%2C1%2C1.3%2C1%2C2.2v11.2C1%2C14.3%2C1.7%2C15%2C2.6%2C15h11.2c0.9%2C0%2C1.6-0.7%2C1.6-1.6V7.8h-1.6V13.4z%0A%09%09%20M9.8%2C0.6v1.6h2.9L4.8%2C10L6%2C11.2l7.8-7.8v2.9h1.6V0.6H9.8z%20M9.8%2C0.6%22%2F%3E%0A%3C%2Fg%3E%0A%3C%2Fsvg%3E') no-repeat center center;
+}
+.PopOutButton:hover {background-position: center center}
+.KBPadding {padding: 0 20px}
+.Avatar.AvatarUnknown {background:url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%2016%2016%22%20style%3D%22enable-background%3Anew%200%200%2016%2016%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%20%3Cstyle%20type%3D%22text%2Fcss%22%3E%0A%09.st0%7Bfill%3A%23666666%7D%09%0A%3C%2Fstyle%3E%0A%3Cg%3E%0A%09%3Cpath%20class%3D%22st0%22%20d%3D%22M15.5%2C14.8l-0.7-2.5c0-0.1-0.1-0.1-0.1-0.1c-0.4-1.4-1.6-2.4-2.9-2.8l-0.2%2C0c-0.3-0.1-0.7%2C0-0.9%2C0.3%0A%09%09C10%2C10.4%2C9%2C10.5%2C8%2C10.5c-1%2C0-2-0.1-2.7-0.9C5%2C9.3%2C4.7%2C9.2%2C4.4%2C9.3L4.1%2C9.4c-1.1%2C0.3-1.9%2C0.9-2.5%2C1.8l-0.3%2C0.7%0A%09%09c-0.1%2C0.1-0.1%2C0.2-0.1%2C0.4l-0.7%2C2.5c-0.1%2C0.3%2C0%2C0.6%2C0.2%2C0.8C0.8%2C15.9%2C1.1%2C16%2C1.4%2C16h13.2c0.3%2C0%2C0.6-0.1%2C0.8-0.4%0A%09%09C15.6%2C15.4%2C15.6%2C15.1%2C15.5%2C14.8z%22%2F%3E%0A%09%3Cpath%20class%3D%22st0%22%20d%3D%22M8.1%2C9.3c2%2C0%2C3.9-2.5%2C3.9-5.4c0%2C0%2C0%2C0%2C0-0.1C12%2C1.7%2C10.3%2C0%2C8.1%2C0C6.7%2C0%2C5.5%2C0.7%2C4.9%2C1.8L4.5%2C2.4c-0.2%2C0.5-0.3%2C1-0.3%2C1.5%0A%09%09c0%2C0%2C0%2C0%2C0%2C0.1C4.3%2C6.9%2C6%2C9.3%2C8.1%2C9.3z%20M11.3%2C3.9C11.3%2C3.9%2C11.3%2C3.9%2C11.3%2C3.9c0%2C2.6-1.5%2C4.8-3.2%2C4.8c-1.6%2C0-3.1-2-3.2-4.5%0A%09%09c0.4%2C0.1%2C0.9%2C0.1%2C1.3%2C0.1c0.7%2C0%2C1.3-0.1%2C1.9-0.3C8.6%2C3.8%2C9%2C3.4%2C9.3%2C3c0.4%2C0.4%2C1%2C0.6%2C1.5%2C0.6c0.1%2C0%2C0.3%2C0%2C0.4-0.1%0A%09%09C11.3%2C3.7%2C11.3%2C3.8%2C11.3%2C3.9z%22%2F%3E%0A%3C%2Fg%3E%0A%3C%2Fsvg%3E') no-repeat center center;}
+        	</style>
+                                <script type="text/javascript">
+            
+var LiveAgentTrackerXD=function(){var LA_POSTMESSAGE_PREFIX="LA_POSTMESSAGE";var interval_id,last_hash,cache_bust=1,window=this;return{postMessage:function(args,target_url,target){if(!target_url){return;}
+if(typeof args==='string'){var message=args;}else{var message=args[0]+'(';for(var i=1;i<args.length;i++){var value=args[i];if(typeof value==='string'){value="'"+value.replace(/'/g,"\\'")+"'";}
+message+=(i>1?', ':'')+value;}
+message+=')';}
+message=LA_POSTMESSAGE_PREFIX+message
+target=target||parent;if(window['postMessage']){target['postMessage'](message,'*');}else{target.location=target_url.replace(/#.*$/,'')+'#'+(+new Date)+(cache_bust++)+'&'+message;}},receiveMessage:function(instance,instanceObject){var callback=function(message){try{if(message.data.toString().substr(0,LA_POSTMESSAGE_PREFIX.length)!==LA_POSTMESSAGE_PREFIX){return;}else{var cleanData=message.data.slice(LA_POSTMESSAGE_PREFIX.length);}
+var getHostName=function(url){var match=url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);if(match!=null&&match.length>2&&typeof match[2]==='string'&&match[2].length>0){return match[2];}
+else{return null;}};var urlWhiteList=new Array;if(instanceObject!==undefined&&instanceObject!==null){if(instanceObject.serverUrl!==undefined&&instanceObject.serverUrl!==null&&instanceObject.serverUrl!==''){urlWhiteList.push(getHostName(instanceObject.serverUrl));}
+if(instanceObject.tracker!==undefined&&instanceObject.tracker!==null){if(instanceObject.tracker.url!==undefined&&instanceObject.tracker.url!==null&&instanceObject.tracker.url!==''){urlWhiteList.push(getHostName(instanceObject.tracker.url));}}}
+if(urlWhiteList.length==0||urlWhiteList.indexOf(getHostName(message.origin))!=-1){eval(instance+'.'+cleanData+";");}}catch(e){console.log(e);}};if(window['postMessage']){if(window['addEventListener']){window[callback?'addEventListener':'removeEventListener']('message',callback,!1);}else{window[callback?'attachEvent':'detachEvent']('onmessage',callback);}}else{interval_id&&clearInterval(interval_id);interval_id=null;if(callback){interval_id=setInterval(function(){var hash=document.location.hash;if(hash===last_hash){return;}
+re=/^#?\d+&/;if(re.test(hash)){callback({data:hash.replace(re,'')});document.location.hash='';}
+last_hash=document.location.hash;},100);}}},receiveMessageFun:function(f,instanceObject){var callback=function(message){try{if(message.data.toString().substr(0,LA_POSTMESSAGE_PREFIX.length)!==LA_POSTMESSAGE_PREFIX){return;}else{var cleanData=message.data.slice(LA_POSTMESSAGE_PREFIX.length);}
+f(cleanData);}catch(e){console.log(e);}};if(window['postMessage']){if(window['addEventListener']){window[callback?'addEventListener':'removeEventListener']('message',callback,!1);}else{window[callback?'attachEvent':'detachEvent']('onmessage',callback);}}else{interval_id&&clearInterval(interval_id);interval_id=null;if(callback){interval_id=setInterval(function(){var hash=document.location.hash;if(hash===last_hash){return;}
+re=/^#?\d+&/;if(re.test(hash)){callback({data:hash.replace(re,'')});document.location.hash='';}
+last_hash=document.location.hash;},100);}}}};}();
+        </script>       
+            
+        <script type="text/javascript">window["5ad54f98c00d428d55a36dd42ba38441"]="[[\"name\",\"value\"],[\"langCode\",\"fr\"]]";window["6a65c572c20e1f6e5d85ad84ec2ad80c"]="[[\"name\",\"value\"],[\"provide\",\"BFC\"],[\"prefix\",\"online_\"],[\"chatWindowType\",\"E\"]]";window["0e8db77b70c6f74f850a639c4dda6925"]="[[\"formfieldid\",\"accountid\",\"formid\",\"code\",\"name\",\"rtype\",\"rstatus\",\"availablevalues\",\"rorder\",\"sectionid\"],[\"936\",\"default1\",\"button_c5bc3caa_chat\",\"name\",\"Nom\",\"T\",\"M\",\"\",\"0\",\"c5bc3caa\"],[\"937\",\"default1\",\"button_c5bc3caa_chat\",\"email\",\"Email\",\"T\",\"M\",\"\",\"1\",\"c5bc3caa\"],[\"938\",\"default1\",\"button_c5bc3caa_chat\",\"DataPrivacy\",\"Pour continuer, nous devrons traiter vos donn\\u00e9es\",\"B\",\"M\",\"Je suis d'accord\",\"2\",\"c5bc3caa\"]]";</script> 
+    </head>
+    <body class="PositionBR">
+        <iframe src="javascript:&#39;&#39;" id="__gwt_historyFrame" style="width:0;height:0;border:0" src="./saved_resource(1).html"></iframe>
+         <div id="mainElement" class="MainElement InicializingState ">
+                <style>
+                
+        
+    </style>
+    <script type="text/javascript">
+    
+        var inPage = 'N';
+        closeWindow = function() {
+            LiveAgentTrackerXD.postMessage(["closeOpenedWidget"], parent_url, parent);
+        }
+    
+    </script>
+<script type="text/javascript">
+  
+      function toggleKb() {
+      var articles = document.getElementById('kb_side_panel');
+          articles.classList.toggle('Kb-open');
+    }
+  
+</script>
+<div id="kb_side_panel" class="KbSidePanel">
+    <div class="KbSidePanel-icon" onclick="toggleKb()"></div>
+    <h3 id="kb_title" class="KbTitle">Base de connaissances</h3>
+    <div class="KbResultsWrapper">
+      <div id="kb_results" class="KbResults">
+                </div>
+   </div>
+</div> 
+<div class="mainForm  ">
+<div class="mainFormContent">
+  <div id="kb_entry_panel" class="KbEntryPanel"></div>
+  <div class="spaceShadow">
+    <div class="ContactHeader ">
+        <img src="./capago_international_rvb.jpg" alt="Logo" title="Logo">
+    </div>
+<div class="ContactBody ">
+    <div id="body" class="ContactForm">
+        <div id="formTitle" class="FormTitle">Complétez les informations suivantes pour accéder au Live Chat :</div>
+        <div id="formDescription" class="FormDescription"></div>
+        <div class="ContactFormBorder">        
+            <div id="formContent">
+                    <div id="936main" class="g-FormField2 FormFieldTypeT" style="">
+    <div id="936label" class="g-FormField2-Label g-FormField2-Label-mandatory" style="">
+        <label>Nom</label>
+    </div>
+    <div class="g-FormField2-InputContainer">
+        <div id="936inputPanel" class="g-FormField2-InputPanel">
+            <div id="936container" class="TextBoxContainer"><input id="936input" aria-labelledby="936label" type="text" class="TextBox" name="name" value=""></div>
+        </div>
+        <div id="936description" class="gwt-Label g-FormField2-Description" style="display: none;"></div>
+        <div id="936errorMessage" class="gwt-Label g-FormField2-ErrorMessage" style="display: none"></div>
+        <div id="936errorIcon" class="gwt-Label g-FormField2-ErrorIcon" style="display: none;"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+    <div id="937main" class="g-FormField2 FormFieldTypeT" style="">
+    <div id="937label" class="g-FormField2-Label g-FormField2-Label-mandatory" style="">
+        <label>Email</label>
+    </div>
+    <div class="g-FormField2-InputContainer">
+        <div id="937inputPanel" class="g-FormField2-InputPanel">
+            <div id="937container" class="TextBoxContainer"><input id="937input" aria-labelledby="937label" type="text" class="TextBox" name="email" value=""></div>
+        </div>
+        <div id="937description" class="gwt-Label g-FormField2-Description" style="display: none;"></div>
+        <div id="937errorMessage" class="gwt-Label g-FormField2-ErrorMessage" style="display: none"></div>
+        <div id="937errorIcon" class="gwt-Label g-FormField2-ErrorIcon" style="display: none;"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+    <div id="938main" class="g-FormField2 g-FormField2-filled FormFieldTypeB" style="">
+    <div id="938label" class="g-FormField2-Label g-FormField2-Label-mandatory" style="">
+        <label>Pour continuer, nous devrons traiter vos données</label>
+    </div>
+    <div class="g-FormField2-InputContainer">
+        <div id="938inputPanel" class="g-FormField2-InputPanel">
+            <div id="938container" class="CheckBoxContainer"><div id="938checkbox" aria-labelledby="938checkboxlabel" class="CheckBox" tabindex="0"><input type="text" name="DataPrivacy" tabindex="-1" style="opacity: 0; height: 1px; width: 1px; z-index: -1; overflow: hidden, position: absolute;"></div><div id="938checkboxlabel" class="gwt-Label CheckBoxlabel">Je suis d'accord</div></div>
+        </div>
+        <div id="938description" class="gwt-Label g-FormField2-Description" style="display: none;"></div>
+        <div id="938errorMessage" class="gwt-Label g-FormField2-ErrorMessage" style="display: none"></div>
+        <div id="938errorIcon" class="gwt-Label g-FormField2-ErrorIcon" style="display: none;"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>   
+<div class="ContactWinButtons">
+    <div class="CloseButton" id="windowCloseButton" onclick="closeWindow();"><span>Fermer</span></div>
+</div>
+
+    </div>  
+  </div>
+  <div id="contactFooter" class="ContactFooter ">
+      <div class="Kb-counter " onclick="toggleKb()" title="Suggested articles"><div id="kbCounter">0</div></div>
+      <div id="buttonsPanelWrap" class="ButtonsPanel">
+          	       <div id="sendmainButton" class="ImLeButton ImLeButtonMainOut ButtonUnwrapped Send" aria-hidden="true" style="display: none;" role="button"><div id="sendmain" class="ImLeButtonMain ImLeButtonMainOut buttonBgColor buttonBorderColor send"><div id="sendinnerBox" class="ImLeButtonMainInnerBox buttonInnerBorderColor"><div id="sendinner" class="ImLeButtonMainInner"><div id="sendmainShadow" class="ImLeButtonMainShadow buttonBgShadowColor buttonBgGradColor"></div><div class="ImLeButtonMainContent"><span id="sendtextSpan" class="buttonText">Envoyer</span><div id="sendiconDiv" class="buttonIcon"></div></div></div></div></div></div>  	      	      	                   <div id="chatmainButton" class="ImLeButton ImLeButtonMainOut ButtonUnwrapped Chat" role="button"><div id="chatmain" class="ImLeButtonMain ImLeButtonMainOut buttonBgColor buttonBorderColor chat"><div id="chatinnerBox" class="ImLeButtonMainInnerBox buttonInnerBorderColor"><div id="chatinner" class="ImLeButtonMainInner"><div id="chatmainShadow" class="ImLeButtonMainShadow buttonBgShadowColor buttonBgGradColor"></div><div class="ImLeButtonMainContent"><span id="chattextSpan" class="buttonText">Discussion</span><div id="chaticonDiv" class="buttonIcon"></div></div></div></div></div></div>                      	
+  		<div id="callmainButton" class="ImLeButton ImLeButtonMainOut ButtonUnwrapped Call" aria-hidden="true" style="display: none;" role="button"><div id="callmain" class="ImLeButtonMain ImLeButtonMainOut buttonBgColor buttonBorderColor call"><div id="callinnerBox" class="ImLeButtonMainInnerBox buttonInnerBorderColor"><div id="callinner" class="ImLeButtonMainInner"><div id="callmainShadow" class="ImLeButtonMainShadow buttonBgShadowColor buttonBgGradColor"></div><div class="ImLeButtonMainContent"><span id="calltextSpan" class="buttonText">Appel</span><div id="calliconDiv" class="buttonIcon"></div></div></div></div></div></div>  		<div id="closemainButton" class="ImLeButton ImLeButtonMainOut ButtonUnwrapped SuccessCloseButton" aria-hidden="true" style="display: none;" role="button"><div id="closemain" class="ImLeButtonMain ImLeButtonMainOut buttonBgColor buttonBorderColor close"><div id="closeinnerBox" class="ImLeButtonMainInnerBox buttonInnerBorderColor"><div id="closeinner" class="ImLeButtonMainInner"><div id="closemainShadow" class="ImLeButtonMainShadow buttonBgShadowColor buttonBgGradColor"></div><div class="ImLeButtonMainContent"><span id="closetextSpan" class="buttonText">Fermer</span><div id="closeiconDiv" class="buttonIcon"></div></div></div></div></div></div>  	</div>
+  </div> 
+  <div id="brandingPanel" class="Branding"></div>
+</div>
+        </div>
+        
+        <script type="text/javascript">
+            
+
+            var scriptParams = new Array();
+            var startParams = '';
+
+            var Widget = function() {
+                this.scriptStarted = false;
+            };
+            
+            Widget.prototype = {
+                start: function(param) {
+                    if (this.scriptStarted) {
+                        return;
+                    }
+                    startParams = param;
+                    this.scriptStarted = true;
+                    
+                    var script = window.document.createElement("script");
+                    script.type = "text/javascript";
+                    script.src = '/chat/js/com.qualityunit.liveagent.Contact.nocache.php?v=5.19.5.10&lang=fr.1594537213';
+                    window.document.body.appendChild(script);
+                },
+                setSize: function(width, height) {},
+                setParam: function(name, value) {
+                    scriptParams[name] = value;
+                }
+            };
+            
+            var w = new Widget();
+            
+            if (typeof LiveAgentTrackerXD !== 'undefined') {
+                LiveAgentTrackerXD.receiveMessage('w');
+            }
+            
+            var base_path = '/';
+			
+			
+        </script>
+		<script type="text/javascript">
+			
+			if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) {
+  				var viewportmeta = document.querySelector('meta[name="viewport"]');
+  				if (viewportmeta) {
+    				viewportmeta.content = 'width=device-width, minimum-scale=1.0, maximum-scale=1.0';
+    				document.body.addEventListener('gesturestart', function() {
+      				viewportmeta.content = 'width=device-width, minimum-scale=0.25, maximum-scale=1.6';
+    				}, false);
+  				}
+			}
+			
+		</script>
+    
+</body></html>

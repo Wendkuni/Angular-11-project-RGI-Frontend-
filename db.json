@@ -1,0 +1,170 @@
+{
+  "region": [
+    {
+      "id": 3,
+      "libelle": "Centre",
+      "code": "11",
+      "cheflieu": "Ouagadougou"
+    },
+    {
+      "id": 4,
+      "libelle": "Centre Est",
+      "cheflieu": "Tenkodogo",
+      "code": "10"
+    },
+    {
+      "id": 5,
+      "libelle": "Centre Nord",
+      "cheflieu": "Kaya",
+      "code": "06"
+    },
+    {
+      "id": 6,
+      "libelle": "Centre Ouest",
+      "cheflieu": "Koudougou",
+      "code": "07"
+    },
+    {
+      "id": 7,
+      "libelle": "Centre Sud",
+      "cheflieu": "Manga",
+      "code": "13"
+    },
+    {
+      "id": 8,
+      "libelle": "Est",
+      "cheflieu": "Fada N’gourma",
+      "code": "04"
+    },
+    {
+      "id": 9,
+      "libelle": "Haut Bassins",
+      "cheflieu": "Bobo-Dioulasso",
+      "code": "01"
+    },
+    {
+      "id": 10,
+      "libelle": "Nord",
+      "cheflieu": "Ouahigouya",
+      "code": "09"
+    },
+    {
+      "id": 11,
+      "libelle": "Plateau Central",
+      "cheflieu": "Ziniaré",
+      "code": "08"
+    },
+    {
+      "id": 12,
+      "libelle": "Sahel",
+      "cheflieu": "Dori",
+      "code": "03"
+    },
+    {
+      "id": 13,
+      "libelle": "Sud-Ouest",
+      "cheflieu": "Gaoua",
+      "code": "05"
+    },
+    {
+      "libelle": "boucle",
+      "code": 13,
+      "cheflieu": "ouaga",
+      "id": 15
+    }
+  ],
+  "province": [
+    {
+      "libelle": "Léraba",
+      "code": "38",
+      "cheflieu": "Sindou",
+      "region": 2,
+      "id": 2
+    },
+    {
+      "libelle": "Kadiogo",
+      "code": "14",
+      "cheflieu": "Ouagadougou",
+      "region": 3,
+      "id": 4
+    }
+  ],
+  "commune": [
+    {
+      "id": 2,
+      "libelle": "Ouagadougou",
+      "code": "01",
+      "type": "Rurale",
+      "province": 4
+    },
+    {
+      "libelle": "Koupéla",
+      "code": "05",
+      "type": "Urbaine",
+      "province": 4,
+      "id": 4
+    },
+    {
+      "id": 5,
+      "libelle": "Bassinkos",
+      "code": "09",
+      "type": "Urbaine",
+      "province": 4
+    },
+    {
+      "id": 6,
+      "libelle": "Yagma",
+      "code": "p003",
+      "type": "Rurale",
+      "province": 4
+    }
+  ],
+  "arrondissement": [
+    {
+      "id": 1,
+      "libelle": "Bagassi",
+      "commune": 4
+    },
+    {
+      "id": 1,
+      "libelle": "Bagassi",
+      "commune": "8"
+    },
+    {
+      "libelle": "Boulmiougou",
+      "code": "A01",
+      "commune": 2,
+      "id": 2
+    }
+  ],
+  "localite": [
+    {
+      "id": 1,
+      "code": "01",
+      "libelle": "Koulba",
+      "type": "Secteur",
+      "arrondissement": 2
+    },
+    {
+      "id": 2,
+      "code": "04",
+      "libelle": "Pat-D'oie",
+      "type": "Secteur",
+      "arrondissement": 2
+    },
+    {
+      "id": 3,
+      "code": "098",
+      "libelle": "Passe-penga",
+      "type": "Secteur",
+      "arrondissement": 2
+    },
+    {
+      "id": 4,
+      "code": "L002",
+      "libelle": "Site-an-2",
+      "type": "Secteur",
+      "arrondissement": 2
+    }
+  ]
+}

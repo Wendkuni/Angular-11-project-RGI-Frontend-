@@ -1,0 +1,116 @@
+<mat-dialog-actions align="end" style="margin-bottom: 10px;">
+  <button mat-raised-button (click)="reset()">RESET
+    <mat-icon mat-raised-button>close</mat-icon>
+  </button>
+</mat-dialog-actions>
+<mat-dialog-content>
+  <mat-horizontal-stepper linear #stepper>
+  <mat-step [stepControl]="secondFormGroup" >
+      <form [formGroup]="secondFormGroup" #form2="ngForm">
+      <ng-template matStepLabel>Information de l'utilisateur</ng-template>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Nom d'utilisateur</mat-label>
+        <mat-icon matPrefix>account_circle</mat-icon>
+        <input matInput formControlName="userName" placeholder="userName"
+               required>
+      </mat-form-field>
+     <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Nom</mat-label>
+        <mat-icon matPrefix>perm_identity</mat-icon>
+        <input matInput formControlName="nom" placeholder="nom "
+               required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Prénom</mat-label>
+        <mat-icon matPrefix>perm_identity</mat-icon>
+        <input matInput formControlName="prenom" placeholder="prenom"
+               required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Téléphone professionnel</mat-label>
+        <mat-icon matPrefix>phone</mat-icon>
+        <input matInput formControlName="telephone" placeholder="telephone"  type="tel" required>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email personnel</mat-label>
+        <mat-icon matPrefix>mail_outline</mat-icon>
+        <input matInput formControlName="emailP" placeholder="emailP" required>
+        <mat-error *ngIf="firstFormGroup.hasError('emailP') && !firstFormGroup.hasError('required')">
+        </mat-error>
+        <mat-error *ngIf="firstFormGroup.hasError('required')">
+        <strong>required</strong>
+              </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Pays</mat-label>
+        <mat-icon matPrefix>location_on</mat-icon>
+        <input matInput formControlName="pays" placeholder="pays" required>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Ville</mat-label>
+        <mat-icon matPrefix>pin_drop</mat-icon>
+          <input matInput formControlName="ville" placeholder="ville" required>
+       </mat-form-field>
+
+       <mat-card align="end">
+        <button mat-raised-button color="primary" matStepperNext [disabled]="form2.invalid">SUIVANT</button>
+        <button mat-raised-button color="warn" [mat-dialog-close]>Annuler</button>
+       </mat-card >
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel >Finalisez vôtre inscription </ng-template>
+    <mat-card-content>
+      <mat-card-subtitle> Merci d'avoir remplit tout les champs, veuillez vérifier vos informations avant de valider votre compte, si elles sont correcte cliquer sur
+        VALIDER dans le cas contraire sur RETOUR pour revenir en arrière et modifier vos informations.
+      </mat-card-subtitle>
+
+
+      <form [formGroup]="secondFormGroup"  >
+        <mat-form-field  appearance="outline">
+          <mat-label>Nom d'utilisateur</mat-label>
+           <input matInput disabled value="{{secondFormGroup.get('userName').value}}" class="forme">
+         </mat-form-field>
+
+         <mat-form-field appearance="outline">
+          <mat-label>Nom</mat-label>
+          <input matInput disabled value="{{secondFormGroup.get('nom').value}}" class="forme">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Prénom</mat-label>
+          <input matInput disabled value="{{secondFormGroup.get('prenom').value}}" class="forme">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email personnel</mat-label>
+          <input matInput disabled value="{{secondFormGroup.get('emailP').value}}" class="forme">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Téléphone professionnel</mat-label>
+          <input matInput disabled value="{{secondFormGroup.get('telephone').value}}" class="forme">
+        </mat-form-field>
+        </form>
+      </mat-card-content>
+        <mat-card align="end">
+            <button mat-raised-button color="accent"  mat-button matStepperPrevious>RETOUR</button>
+            <button mat-raised-button
+              color="primary" mat-button
+              (click)="openSubmitSnackbar()" [mat-dialog-close]
+                [disabled]="form2.invalid" class="enregistrer">VALIDER</button>
+                <button mat-raised-button color="warn" [mat-dialog-close]>Annuler</button>
+        </mat-card>
+  </mat-step>
+</mat-horizontal-stepper>
+
+</mat-dialog-content>

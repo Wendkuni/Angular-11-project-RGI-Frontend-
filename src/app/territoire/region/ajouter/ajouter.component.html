@@ -1,0 +1,36 @@
+<h2 mat-dialog-title *ngIf="data.region">Modifier la region : {{data.region.libelle}} </h2>
+<h2 mat-dialog-title *ngIf="!data.region">Ajouter la region </h2>
+<mat-dialog-content>
+  <form [formGroup]="formulaireRegion" #formRegion="ngForm">
+    <mat-form-field appearance="outline">
+      <mat-label>code </mat-label>
+      <input matInput formControlName="code">
+      <mat-error *ngIf="formulaireRegion.get('code').touched && formulaireRegion.get('code').invalid">
+        La longueur doit etre inferieure ou egal a deux(2)
+      </mat-error>
+    </mat-form-field><br/>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Libelle</mat-label>
+      <input matInput formControlName="libelle">
+      <mat-error *ngIf="formulaireRegion.get('libelle').touched && formulaireRegion.get('libelle').invalid">
+        remplisser le libelle 
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>chef-lieu</mat-label>
+      <input matInput formControlName="chefLieu">
+      <mat-error *ngIf="formulaireRegion.get('chefLieu').touched && formulaireRegion.get('chefLieu').invalid">
+        remplisser le cheflieu 
+      </mat-error>
+    </mat-form-field><br/>
+
+</form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button  mat-raised-button color="warn" mat-dialog-close>ANNULER</button>
+  <button mat-raised-button class="ENREGISTRER"  (click)="ngOnSubmit()" [disabled]="formRegion.invalid"
+  mat-dialog-close>
+    ENREGISTRER</button>
+</mat-dialog-actions>

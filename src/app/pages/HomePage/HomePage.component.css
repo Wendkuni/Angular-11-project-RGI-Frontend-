@@ -1,0 +1,91 @@
+.acc>mat-card
+{
+  width: 30%;
+  float: left;
+  margin: 20px;
+}
+
+
+
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.mat-accordion>.acc
+{
+  text-align: center;
+  font-style: oblique 40deg;
+}
+
+mat-accordion
+{
+  text-align: left;
+  font-style: oblique 40deg;
+}
+.endpointNotice
+{
+  margin: 10px;
+  font-size: 15px;
+  font-style: oblique 40deg;
+}
+mat-card-header
+{
+  font-size: 20px;
+  font-style: oblique 40deg;
+}
+H1{
+  font-size: 30px;
+  
+}
+
+p
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin-left: 30px;
+  text-align: justify;
+}
+li{
+  font-size: 18px;
+  text-align: justify;
+}
+strong{
+  
+}
+
+mat-panel-title
+{
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.headerCard
+{
+  background-color: rgb(56, 52, 52);
+  color: white;
+  padding: 20px;
+}
+
+@media screen and (min-width: 200px) and (max-width: 960px)
+{
+  .acc>mat-card
+  {
+    width: 100%;
+    float: left;
+    margin: 10px;
+    font-style: oblique 40deg;
+  }
+  mat-panel-title
+  {
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .headerCard
+  {
+    background-color: rgb(56, 52, 52);
+    color: white;
+    padding: 0px;
+    font-size: 10px;
+  }
+ 
+}

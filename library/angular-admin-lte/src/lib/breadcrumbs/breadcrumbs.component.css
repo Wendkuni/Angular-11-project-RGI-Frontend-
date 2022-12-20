@@ -1,0 +1,32 @@
+.breadcrumb {
+  float: right;
+  background: transparent;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 12px;
+  padding: 7px 5px;
+  position: absolute;
+  top: 15px;
+  left:  25px;
+  border-radius: 2px;
+}
+
+.breadcrumb > li > a {
+  color: #444;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.breadcrumb > li .fa,
+.breadcrumb > li .glyphicon,
+.breadcrumb > li .ion {
+  margin-right: 15px;
+}
+
+ol{
+  font-family: cursive;
+  font-weight: bold;
+}
+i{
+  float: 100px;
+}

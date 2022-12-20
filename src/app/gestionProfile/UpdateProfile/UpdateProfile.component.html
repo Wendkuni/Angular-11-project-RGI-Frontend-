@@ -1,0 +1,160 @@
+
+  <!-- <mk-alert backgroundColor="warning">
+    <h4><i class="icon fa fa-info"></i>
+      Information!
+    </h4>
+    Cette page vous permettra de modifier vos Informations
+  </mk-alert> -->
+<mat-tab-group  mat-stretch-tabs [color]="'primary'" [backgroundColor]="'primary'" mat-align-tabs="start">
+  <mat-tab *ngIf="type === 1" label="MODIFIER LES INFORMATIONS SUR L'UTILISATEUR">
+      <mat-card>
+        <form [formGroup]="user" #fromUser="ngForm">
+          <ng-template matStepLabel>Informations Personnel</ng-template>
+          <mat-form-field appearance="outLine">
+            <mat-label>Username</mat-label>
+            <input matInput disabled value="{{userDetail.username}}" class="desactive">
+          </mat-form-field><br/>
+          <mat-form-field appearance="outline">
+            <mat-label>Nom</mat-label>
+            <mat-icon matPrefix>perm_identity</mat-icon>
+            <input matInput formControlName="nom"  placeholder="Nom" required>
+            <mat-error *ngIf="user.get('nom').touched && user.get('nom').invalid">
+              <p>Champs obligatoire, cet champs doit pas etre vide</p>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Prenom</mat-label>
+            <mat-icon matPrefix>perm_identity</mat-icon>
+            <input matInput formControlName="prenom"  placeholder="Prenom" required>
+            <mat-error *ngIf="user.get('prenom').touched && user.get('prenom').invalid">
+              <p>Champs obligatoire, cet champs doit pas etre vide</p>
+            </mat-error>
+          </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Pays</mat-label>
+          <mat-icon matPrefix> location_on</mat-icon>
+          <input matInput formControlName="pays"  placeholder="pays" required>
+          <mat-error *ngIf="user.get('pays').touched && user.get('pays').invalid">
+            <p>Champs obligatoire, cet champs doit pas etre vide</p>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Ville</mat-label>
+          <mat-icon matPrefix>pin_drop</mat-icon>
+          <input matInput formControlName="ville"  placeholder="ville" required>
+          <mat-error *ngIf="user.get('ville').touched && user.get('ville').invalid">
+            <p>Champs obligatoire, cet champs doit pas etre vide</p>
+          </mat-error>
+        </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Contact</mat-label>
+        <mat-icon matPrefix>phone</mat-icon>
+        <input type="tel" matInput formControlName="contact"  placeholder="contact" required>
+        <mat-error *ngIf="user.get('contact').touched && user.get('contact').invalid">
+          <p>Champs obligatoire, cet champs doit pas etre vide</p>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <mat-icon matPrefix>mail_outline</mat-icon>
+        <input matInput formControlName="email"  placeholder="email" required>
+        <mat-error *ngIf="user.get('email').touched && user.get('email').invalid">
+          <p>Champs obligatoire, cet champs doit pas etre vide</p>
+        </mat-error>
+      </mat-form-field>
+    <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Enter your password</mat-label>
+          <mat-icon matPrefix>lock</mat-icon>
+          <input matInput formControlName="password" [type]="hideC ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hideC = !hideC" [attr.aria-label]="'hideC password'" [attr.aria-pressed]="hideC">
+          <mat-icon>{{hideC ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Enter your password</mat-label>
+          <mat-icon matPrefix>lock</mat-icon>
+          <input matInput formControlName="confirm" [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-error *ngIf="user.get('password').value !== user.get('confirm').value">
+            <p>Confirmer le mot de pass svp</p>
+        </mat-error>
+        </form>
+        <mat-card-actions align="end">
+          <button mat-raised-button color="primary" (click)="openSubmitSnackbar()" [disabled]="fromUser.invalid">Valider la Modification</button>
+        </mat-card-actions>
+      </mat-card>
+  </mat-tab>
+
+
+
+
+  <mat-tab *ngIf="type !== 1" label="MODIFIER LE PROFILE DE LA STRUCTURE">
+    <mat-card>
+      <form [formGroup]="structure" #frmStructure="ngForm">
+        <ng-template matStepLabel>Informations de Structure</ng-template>
+        <mat-form-field appearance="outline">
+          <mat-label>Type Structure</mat-label>
+                 <mat-select formControlName="typeStructure" disableRipple >
+                   <mat-option value="public">Public</mat-option>
+                   <mat-option value="privé">Privé</mat-option>
+                </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nom Structure</mat-label>
+          <input matInput  placeholder="nom structure" disabled value="{{structureDetail.nomStructure}}" class="desactive">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Code Postal</mat-label>
+          <input matInput formControlName="codePostal" placeholder="Code Postal ">
+          <mat-error *ngIf="structure.get('codePostal').touched && structure.get('codePostal').invalid">
+            <p>Champs obligatoire, cet champs doit pas etre vide</p>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" placeholder="Email">
+          <mat-error *ngIf="structure.get('email').touched && structure.get('email').invalid">
+            <p>Champs obligatoire, cet champs doit pas etre vide</p>
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Site Web</mat-label>
+          <input matInput formControlName="siteweb" placeholder="Site Web">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Contact</mat-label>
+          <input matInput formControlName="contact" placeholder="Contact" required>
+          <span matPrefix>+ &nbsp;</span>
+          <input type="tel" matInput>
+          <mat-icon matSuffix>mode_edit</mat-icon>
+          <mat-error *ngIf="structure.get('contact').touched && structure.get('contact').invalid">
+            <p>Champs obligatoire, cet champs doit pas etre vide</p>
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Nom application</mat-label>
+          <input matInput placeholder="Nom application" disabled value="{{structureDetail.appName}}" class="desactive">
+        </mat-form-field>
+
+        <mat-form-field class="Description" appearance="outline">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description" placeholder="Ex. Description de l'application"></textarea>
+        </mat-form-field>
+      </form>
+      <mat-card-actions align="end" >
+        <button mat-raised-button color="primary" (click)="openSubmitSnackbar()" [disabled]="frmStructure.invalid">Valider la Modification</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-tab>

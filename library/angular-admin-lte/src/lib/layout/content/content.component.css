@@ -1,0 +1,10 @@
+:host {
+  display: block;
+}
+
+.content-wrapper {
+     position: relative;
+}
+mat-card{
+height: 60px;
+}

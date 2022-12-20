@@ -1,0 +1,49 @@
+<mat-card style="margin-bottom: 10px;">
+  <mat-card-title>Profile de l'utilisateur</mat-card-title>
+</mat-card>
+<!-- <mk-alert backgroundColor="warning">
+  <h4><i class="icon fa fa-info"></i>
+    Information!
+  </h4>
+  Cette page affiche les information de l'utilisateur connecter
+</mk-alert> -->
+
+<mat-card>
+  <form>
+    <ng-template matStepLabel>Informations Personnel</ng-template>
+    <mat-form-field appearance="outLine">
+      <mat-label>Username</mat-label>
+      <input matInput disabled value="{{user.username}}" class="desactive">
+    </mat-form-field><br/>
+    <mat-form-field appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input matInput disabled value="{{user.nom}}" class="desactive">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Prenom</mat-label>
+      <input matInput  disabled value="{{user.prenom}}" class="desactive">
+    </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill" >
+    <mat-label>Pays</mat-label>
+    <input matInput  disabled value="{{user.pays}}" class="desactive">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Ville</mat-label>
+    <input matInput disabled value="{{user.ville}}" class="desactive">
+  </mat-form-field>
+<br>
+<mat-form-field appearance="fill">
+  <mat-label>Contact</mat-label>
+  <input type="tel" matInput disabled value="{{user.contact}}" class="desactive">
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Email</mat-label>
+  <input matInput   disabled value="{{user.email}}" class="desactive">
+</mat-form-field>
+<br>
+  </form>
+  <mat-card-actions align="end">
+    <button mat-raised-button color="primary" (click)="register()">Modifier</button>
+  </mat-card-actions>
+</mat-card>

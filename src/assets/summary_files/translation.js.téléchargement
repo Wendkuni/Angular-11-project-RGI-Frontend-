@@ -1,0 +1,69 @@
+/* CHECK LANGUAGE */
+if(lang === "fr") {
+	/* NEWSLETTER */
+	var newsletterFormSending = 'En attente';
+	var newsletterFormSendingButton = 'Envoi en cours...';
+	var newsletterFormSuccess = '<span class="form-success">Merci, votre inscription a bien été prise en compte.</span>';
+	var newsletterFormError = '<span class="form-error">Une erreur s\'est produite, veuillez réessayer.</span>';
+	var newsletterFormsNotif = '<span class="form-error">Vous êtes déjà inscrit à notre newsletter.</span>';
+	var newsletterFormFillFields = '<span class="form-error">Veuillez remplir votre adresse email.</span>';
+	var newsletterFormValidEmail = '<span class="form-error">Merci de rentrer une adresse email valide.</span>';
+
+	/* CONTACT */
+	var contactFormSending = 'Veuillez patienter...';
+	var contactFormSendingButton = 'Envoi en cours...';
+	var contactFormSuccess = '<span class="form-success">Merci, votre email a bien été envoyé.</span>';
+	var contactFormError = '<span class="form-error">Une erreur s\'est produite. Veuillez réessayer.</span>';
+	var contactFormFillFields = '<span class="form-error">Veuillez renseigner tous les champs obligatoires.</span>';
+	var contactFormValidEmail = '<span class="form-error">Veuillez entrer une adresse email valide.</span>';
+
+	/* BOOKING */
+	var BookingFormSendingButton = 'Envoi en cours...';
+
+	/* MODAL */
+	var modalFormSending = 'Veuillez patienter...';
+	var modalFormSendingButton = 'Envoi en cours...';
+	var modalFormSuccess = '<span class="form-success">Merci, vos documents ont bien été envoyé.</span>';
+	var modalFormError = '<span class="form-error">Une erreur s\'est produite. Veuillez réessayer.</span>';
+	var modalFormFillFields = '<span class="form-error">Veuillez renseigner tous les champs obligatoires.</span>';
+	var modalFormValidEmail = '<span class="form-error">Veuillez entrer une adresse email valide.</span>';
+
+	/* REJECT PARAGRAPH */
+	var headerReject = 'Savez-vous que votre navigateur trop ancien ?';
+	var paragraph1Reject = 'Votre navigateur n\'est pas compatible avec notre site. Une liste des navigateurs les plus populaires est disponible ci-dessous.';
+	var paragraph2Reject = 'Cliquez sur l\'icone pour vous rendre sur la page de téléchargement';
+
+} else {
+	/* NEWSLETTER */
+	var newsletterFormSending = 'Pending';
+	var newsletterFormSendingButton = 'Sending...';
+	var newsletterFormSuccess = '<span class="form-success">Thank you, your subscription has been completed.</span>';
+	var newsletterFormError = '<span class="form-error">An error occured, please try again.<span>';
+	var newsletterFormsNotif = '<span class="form-error">You are already registered.</span>';
+	var newsletterFormFillFields = '<span class="form-error">Please fill your email address.</span>';
+	var newsletterFormValidEmail = '<span class="form-error">Please enter a valid email address.</span>';
+
+	/* CONTACT*/
+	var contactFormSending = 'Please wait...';
+	var contactFormSendingButton = 'Sending...';
+	var contactFormSuccess = '<span class="form-success">Thank you, your email has been send.</span>';
+	var contactFormError = '<span class="form-error">An error occured, please try again.</span>';
+	var contactFormFillFields = '<span class="form-error">Please fill required fields.</span>';
+	var contactFormValidEmail = '<span class="form-error">Please enter a valid email address.</span>';
+
+	/* BOOKING */
+	var BookingFormSendingButton = 'Sending...';
+
+	/* MODAL */
+	var modalFormSending = 'Please wait...';
+	var modalFormSendingButton = 'Sending...';
+	var modalFormSuccess = '<span class="form-success">Thank you, your documents has been send.</span>';
+	var modalFormError = '<span class="form-error">An error occured, please try again.</span>';
+	var modalFormFillFields = '<span class="form-error">Please fill required fields.</span>';
+	var modalFormValidEmail = '<span class="form-error">Please enter a valid email address.</span>';
+
+	/* REJECT PARAGRAPH */
+	var headerReject = 'Did you know that your Internet Browser is out of date?';
+	var paragraph1Reject = 'Your browser is out of date, and may not be compatible with our website. A list of the most popular web browsers can be found below.';
+	var paragraph2Reject = 'Just click on the icons to get to the download page';
+}

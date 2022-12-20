@@ -1,0 +1,16 @@
+<h2>
+  Supprimer Un Compte
+</h2>
+<span *ngIf="!isPiner">
+  <mat-dialog-content >
+    Suppression du compte de {{data.utilisateur.nom | uppercase}} de la Structure "{{data.utilisateur.structure.nomStructure}}"
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button color="warn" [mat-dialog-close]>Nom Merci</button>
+    <button mat-raised-button class="enregistrer" (click)="supprimer()">Valide</button>
+  </mat-dialog-actions>
+</span>
+
+<span *ngIf="isPiner">
+  <mat-spinner></mat-spinner>
+</span>

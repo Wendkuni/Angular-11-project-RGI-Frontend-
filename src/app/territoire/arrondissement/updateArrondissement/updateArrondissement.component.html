@@ -1,0 +1,48 @@
+<h2 mat-dialog-title *ngIf="data.arrondissement">Modifier l'arrondissement : {{data.arrondissement.libelle}} </h2>
+<h2 mat-dialog-title *ngIf="!data.arrondissement">Ajouter l'arrondissement </h2>
+<mat-dialog-content>
+  <form [formGroup]="formulaireArondissement" #formArrondissement="ngForm">
+
+    <mat-form-field class="example-full-width" *ngIf="isAct">
+      <input type="text"
+             placeholder="Selectionner La commune"
+             aria-label="Number"
+             matInput
+             formControlName="commune"
+             [matAutocomplete]="auto">
+      <mat-autocomplete autoActiveFirstOption=true #auto="matAutocomplete">
+        <mat-option *ngFor="let option of communeOptions | async" [value]="option.libelle">
+          {{option.libelle}}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error *ngIf="formulaireArondissement.get('commune').touched && formulaireArondissement.get('commune').invalid">
+        La Commune selectionner n'existe pas desoler
+      </mat-error>
+    </mat-form-field>
+
+    <br/><br/>
+    <mat-form-field appearance="outline">
+      <mat-label>code Arrondissement</mat-label>
+      <input matInput formControlName="code">
+      <mat-error *ngIf="formulaireArondissement.get('code').touched && formulaireArondissement.get('code').invalid">
+        La longueur doit etre compris ou egale 2 et 4
+      </mat-error>
+    </mat-form-field><br/>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Libelle</mat-label>
+      <input matInput formControlName="libelle">
+      <mat-error *ngIf="formulaireArondissement.get('libelle').touched && formulaireArondissement.get('libelle').invalid">
+        remplisser le libelle de l'arrondissement
+      </mat-error>
+    </mat-form-field>
+
+
+</form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button  mat-raised-button color="warn" mat-dialog-close>ANNULER</button>
+  <button mat-raised-button class="enregistrer" (click)="ngOnSubmit()" [disabled]="formArrondissement.invalid"
+  mat-dialog-close>
+    ENREGISTRER</button>
+</mat-dialog-actions>

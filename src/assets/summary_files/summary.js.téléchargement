@@ -1,0 +1,203 @@
+/*global window, document, XMLHttpRequest, console, JSON, Handlebars, jQuery, decodeURIComponent*/
+
+(function(window, document, XMLHttpRequest, console, JSON, Handlebars, $) {
+  'use strict';
+
+  var varList,
+    visa_file_template = Handlebars.compile(
+      document.getElementById('visa-file-template').innerHTML
+    );
+
+  function addVisaFile(item, className) {
+    /** Add a visa file details to .visa_file_container div.
+
+    Visa file details are formated with a handlebar template at #visa-file-template
+
+    For compatibility, if destination div is not found, use section.meet>div.container>div
+    */
+    var visaFileContainerDiv = document.querySelector('.visa_file_container');
+    if (visaFileContainerDiv === null) {
+      visaFileContainerDiv = document
+        .querySelector('section.meet')
+        .querySelector('.container')
+        .querySelector('div');
+    }
+    item.className = className;
+    if (item.download_schengen_form.indexOf('http') != -1) {
+      item.displayStyle = 'block';
+    } else {
+      item.displayStyle = 'none';
+    }
+    visaFileContainerDiv.innerHTML += visa_file_template(item);
+  }
+
+  function addTotalPrice(total_price, currency, precision) {
+    var newDiv = document.createElement('div'),
+      itemDiv = document.createElement('div'),
+      lastDiv = document.createElement('div'),
+      span = document.createElement('span'),
+      spanText = document.createTextNode('TOTAL VAT:'),
+      spanLast = document.createElement('span'),
+      spanTotalPrice = document.createTextNode(
+        total_price.toFixed(precision) + ' ' + currency
+      );
+    spanLast.appendChild(spanTotalPrice);
+    span.appendChild(spanText);
+
+    lastDiv.appendChild(span);
+    lastDiv.appendChild(spanLast);
+    lastDiv.className = 'last';
+
+    itemDiv.appendChild(newDiv);
+    itemDiv.appendChild(lastDiv);
+    itemDiv.className = 'last';
+    var currentDiv = document
+      .querySelector('section.module.summary')
+      .querySelector('.container')
+      .querySelector('div');
+    currentDiv.appendChild(itemDiv);
+  }
+  function addInvoiceLine(item, currency, precision, divClass) {
+    var newDiv = document.createElement('div'),
+      itemDiv = document.createElement('div'),
+      lastDiv = document.createElement('div'),
+      span = document.createElement('span'),
+      spanLast = document.createElement('span'),
+      spanUnitPrice = document.createTextNode(
+        item.unit_price.toFixed(precision) + ' ' + currency
+      ),
+      spanTotalPrice = document.createTextNode(
+        item.total_price.toFixed(precision) + ' ' + currency
+      ),
+      strong = document.createElement('strong'),
+      newContent = document.createTextNode(item.quantity + ' x '),
+      titleNode = document.createTextNode(item.title);
+    span.appendChild(spanUnitPrice);
+    spanLast.appendChild(spanTotalPrice);
+
+    lastDiv.appendChild(span);
+    lastDiv.appendChild(spanLast);
+    lastDiv.className = 'last';
+
+    strong.appendChild(newContent);
+    newDiv.appendChild(strong);
+    newDiv.appendChild(titleNode);
+
+    itemDiv.className = divClass;
+    itemDiv.appendChild(newDiv);
+    itemDiv.appendChild(lastDiv);
+
+    var currentDiv = document
+      .querySelector('section.module.summary')
+      .querySelector('.container')
+      .querySelector('div');
+    currentDiv.appendChild(itemDiv);
+  }
+
+  function getUrlVarList() {
+    var varList = [],
+      hash;
+    var hashes = window.location.href
+      .slice(window.location.href.indexOf('?') + 1)
+      .split('&');
+    for (var i = 0; i < hashes.length; i++) {
+      hash = hashes[i].split('=');
+      varList.push(decodeURIComponent(hash[0]));
+      varList[decodeURIComponent(hash[0])] = decodeURIComponent(hash[1]);
+    }
+    return varList;
+  }
+
+  function populateSummary(evt) {
+    var elem,
+      item,
+      data,
+      target = evt.target,
+      divClass = 'odd';
+    if (target.readyState === XMLHttpRequest.DONE && target.status === 200) {
+      data = JSON.parse(target.responseText);
+      if (window.customAnalytics) {
+        try {
+          window.customAnalytics(data);
+        } catch (e) {
+          console.error("Error with customAnalytics", e);
+        }
+      }
+      $('.tracking_number').text(data.tracking_number);
+      $('.capago_center_city').text(data.capago_center_city);
+      $('.appointment_date').text(data.appointment_date);
+      $('.deposit_amount').text(
+        data.deposit_amount.toFixed(data.precision) + ' ' + data.currency
+      );
+      $('a[data-href="reschedule_url"]').attr('href', data.reschedule_url);
+      $('a.reschedule_url').attr('href', data.reschedule_url);
+
+      switch (data.current_state) {
+        case 'waiting_for_payment':
+          $('.current_state_waiting_for_payment').show();
+          break;
+        case 'waiting_for_gratuity_proof':
+          $('.current_state_waiting_for_gratuity_proof').show();
+          break;
+        case 'appointment_confirmed':
+          $('.current_state_appointment_confirmed').show();
+          break;
+        case 'appointment_cancelled':
+          $('.current_state_appointment_cancelled').show();
+          break;
+        default:
+          console.error('unexpected state', data.current_state);
+          break;
+      }
+
+      for (item in data.invoice_line_list) {
+        if (data.invoice_line_list.hasOwnProperty(item)) {
+          addInvoiceLine(
+            data.invoice_line_list[item],
+            data.currency,
+            data.precision,
+            divClass
+          );
+          divClass = divClass == 'odd' ? '' : 'odd';
+        }
+      }
+      divClass = 'odd';
+      for (item in data.visa_file_list) {
+        if (data.visa_file_list.hasOwnProperty(item)) {
+          addVisaFile(data.visa_file_list[item], divClass);
+          divClass = divClass == 'odd' ? '' : 'odd';
+        }
+      }
+      addTotalPrice(
+        data.sale_invoice_total_price,
+        data.currency,
+        data.precision
+      );
+    }
+  }
+
+  function init() {
+    var httpRequest = new XMLHttpRequest(),
+      url =
+        varList.url +
+        '?access_token=' +
+        encodeURIComponent(varList.url_access_token) +
+        '&access_token_secret=' +
+        encodeURIComponent(varList.url_access_token_secret);
+    if (varList.system_event) {
+      url = url + '&system_event=' + encodeURIComponent(varList.system_event);
+    }
+    if (varList.appointment_date) {
+      url =
+        url +
+        '&appointment_date=' +
+        encodeURIComponent(varList.appointment_date);
+    }
+    httpRequest.open('GET', url, true);
+    httpRequest.onreadystatechange = populateSummary;
+    httpRequest.send();
+  }
+
+  varList = getUrlVarList();
+  document.addEventListener('DOMContentLoaded', init);
+})(window, document, XMLHttpRequest, console, JSON, Handlebars, jQuery);

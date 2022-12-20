@@ -1,0 +1,191 @@
+<div *ngIf="isAct">
+<mat-card>
+  <h1 align="center"> Bienvenu sur La plateforme RGI {{user.nom |uppercase}} {{user.prenom |uppercase}}</h1>
+</mat-card>
+<div >
+  <H1> <strong> Qu'est ce qu'une API ? </strong></H1>
+    <p>Une API (Application Programming Interface ou interface de programmation) est un ensemble de services offert par un logiciel à d'autres logiciels. Grâce aux API, 
+    les programmes informatiques peuvent interagir entre eux selon des conditions déterminées.</p>
+    <p>On appelle API web une API accessible via les technologies du Web, notamment le protocole HTTP ou sa version sécurisée HTTPS. Un nombre croissant de sites et de services en ligne proposent des API web destinées aux développeurs. 
+    Elles offrent à ces développeurs le moyen d'exploiter leurs données et leurs services.
+    Une API REST est un type particulier d'API web.</p>
+    <p>Une API est un ensemble de services offert par un logiciel à d'autres logiciels. Grâce aux API, les programmes informatiques peuvent interagir entre eux.
+      <li> Les API web sont des API accessibles via HTTP ou HTTPS. Elles utilisent souvent le format JSON. Il existe d'autres types d'API, accessibles via d'autres protocoles.</li>
+      <li>On consomme une API web dans un programme au moyen d'un appel AJAX. Auparavant, il faut étudier sa documentation ou la tester à l'aide d'une extension de navigateur comme RESTClient ou Postman.</li>
+      <li> De plus en plus de sites et de services en ligne proposent des API web. Certaines sont ouvertes tandis que d'autres sont soumises à authentification, par exemple au moyen d'une clé d'accès.</li>
+    </p>
+  <H1><strong>Comment consommer ou utiliser notre API ?</strong> </H1>
+    <p>Pour pouvoir consommer (utiliser) notre API web, il faut connaître son adresse et son mode de fonctionnement. La plupart des API web sont accessibles 
+      via une URL et utilisent le format JSON pour les échanges de données.</p>
+    <p>Pour obtenir une meilleure présentation du résultat, il est conseillé d'installer une extension de navigateur comme par exemple RESTClient pour Firefox ou Postman pour Chrome. Ces extensions sont très pratiques pour bien comprendre comme fonctionne une API avant de l'utiliser dans un programme.
+      Une fois l'extension installée, on peut l'utiliser pour envoyer une requête HTTP GET vers l'URL de API et analyser en détail le résultat.</p>
+    
+  <div ></div>
+  <mat-card>
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          DOCUMENTATION DE NOTRE API
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <h2>Formats de Réponses</h2>
+        <p>Les formats de réponses sont de type JSON <mark><b>APPLICATION/JSON</b></mark></p>
+        <h2>Authentification</h2>
+        <p>pour Accéder à l'API vous aurez besoins de votre key(clé) d'access. votre Key d'access : <mark><b>ICI</b></mark></p>
+        <h2>Les routes</h2>
+        <p>Toutes les routes vont commencer par : <mark>http://localhost:9090/api/v1/</mark></p>
+        <h2>Echelle</h2>
+        <p>Territoire peut être: région, province, commune, arrondissment ou localité</p>
+        <mat-card>
+          <mat-card-header class="headerCard">
+            GET /Territoire/
+          </mat-card-header>
+          <mat-card-content class="endpointNotice">
+            <p><i>permet de récupérer toutes les informations selon le territoire</i></p>
+          </mat-card-content>
+
+        </mat-card>
+        <mat-card>
+          <mat-card-header class="headerCard">
+            GET /Territoire/'id'
+          </mat-card-header>
+          <mat-card-content class="endpointNotice">
+            <p><i>permet de récuperer toutes les informations d'un territoire en fonction de l'identifiant</i></p>
+          </mat-card-content>
+
+        </mat-card>
+
+        <mat-card>
+          <mat-card-header class="headerCard">
+            GET /Territoire/recherche/'objet'
+          </mat-card-header>
+          <mat-card-content class="endpointNotice">
+             <p><i>permet de faire une recherche générale d'un territoire en fonction de tous les critères</i></p>
+          </mat-card-content>
+
+        </mat-card>
+
+        <mat-card>
+          <mat-card-header class="headerCard">
+            GET /Territoire/libelle='libelle'
+          </mat-card-header>
+          <mat-card-content class="endpointNotice">
+            <p><i>permet de faire une recherche sur un territoire en fonction de son libelle </i></p>
+          </mat-card-content>
+
+        </mat-card>
+
+        <mat-card>
+          <mat-card-header class="headerCard">
+            GET /Territoire/code='code'
+          </mat-card-header>
+          <mat-card-content class="endpointNotice">
+            <p><i>permet de faire une recherche sur un territoire en fonction de son code </i></p>
+          </mat-card-content>
+
+        </mat-card>
+
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          INTRÉGATION DANS LES FRAMEWORKS
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div class="acc">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Intégration avec ANGULAR</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <img src="./../../../assets/angular.jpg" style="width: 100%;">
+          </mat-card-content>
+          <mat-card-actions>
+            <a mat-button href="https://laravel.sillo.org/une-api-avec-laravel-6/" target="_blank">voir plus</a>
+          </mat-card-actions>
+        </mat-card>
+
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Intégration avec LARAVEL</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <img src="./../../../assets/laravel.png" style="width: 100%;">
+          </mat-card-content>
+          <mat-card-actions>
+            <a mat-button href="https://laravel.sillo.org/une-api-avec-laravel-6/" target="_blank">voir plus</a>
+          </mat-card-actions>
+        </mat-card>
+
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Intégration avec SYMFONY</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <img src="./../../../assets/symfony.jpg" style="width: 100%;">
+          </mat-card-content>
+          <mat-card-actions>
+            <a mat-button href="https://laravel.sillo.org/une-api-avec-laravel-6/" target="_blank">voir plus</a>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</mat-card>
+</div>
+<div >
+ 
+</div>
+</div>
+
+
+<div *ngIf="!isAct">
+  
+    <mat-card>
+      <h1 align="center"> Bienvenu sur La plateforme RGI {{user.nom |uppercase}} {{user.prenom |uppercase}}</h1>
+    </mat-card>
+    <div  text-alidn="Justify">
+      <H1> <strong> Pourquoi un API ? </strong></H1>
+        <p> l’API est le moyen pour une entreprise ou une organisation d’ouvrir une porte vers ses biens, son patrimoine informationnel que ce soit les données, les processus ou les systèmes par exemple. En retour, elle s’ouvre sur un monde illimité en matière de possibilités puisqu’il y a autant d’idées qu’il y a de développeurs prêts à ses saisir de ces outils. Les API sont donc devenues une réelle valeur ajoutée, permettant parfois de donner un sens inattendu à un produit. Des milliers d’entreprises travaillent désormais ainsi pour une raison commune : accélérer l’innovation en proposant au monde entier
+           des éléments qui étaient jusqu’à récemment encore les secrets de l’entreprise.</p> 
+          <p> Les API se retrouvent donc caractérisées par une notion de confiance entre celui qui propose ses biens et/ou tout ou partie de son patrimoine informationnel, et celui qui va les utiliser. A tel point que le marché s’est donc industrialisé ces dernières années. Fin 2016, Google n’hésitait pas à débourser presque 700 millions de dollars pour s’offrir Apigee et ses solutions de gestion des API. C’est un nouveau signe de l’enjeu derrière ces interfaces qui sont au cœur de la course à qui innovera le mieux et surtout, le plus vite. Mais les géants (américains pour la plupart) du web ne sont pas les seuls à avoir recours à ces technologies,
+           bien qu’ils fassent régulièrement la démonstration de leur savoir-faire en la matière. </p>
+          <p> Globalement, le secteur bancaire a timidement commencé lui aussi à faire sa révolution. Ces « grandes muettes », souvent assez repliées sur elles-mêmes, inamovibles et campées sur leurs histoires et leurs historiques, évoluent désormais doucement vers l’ouverture. Nuance : les API sont utilisées dans les banques depuis plusieurs années, mais en grande majorité pour des usages internes pour faire interagir leurs différents systèmes bancaires construits traditionnellement en silos. Mais l’essor des « FinTechs » (contraction de Finance et de Technologie) les pousse à s’ouvrir pour innover elles aussi. Et pour discuter, dialoguer et travailler avec ces jeunes entreprises prêtes à bouleverser leur métier, les API deviennent la voie royale. Il s’agit de « Favoriser une intégration sur mesure entre les banques et une tierce partie, dans le but de développer certaines manières de procéder, ou de développer de nouvelles offres », lit-on dans le « World Retail Banking Report » de Capgemini. En revanche, les aspects sécuritaires sont encore très contraignants pour les banques qui, en plus d’être fortement régulées, sont aussi très surveillées. Par extension, le secteur du paiement est lui de moins en moins frileux et cherche justement à s’ouvrir un maximum. Depuis la démocratisation de PayPal au début des années 2000, ce marché a connu plusieurs évolutions et les pionniers ne veulent pas perdre pied. Fin juin 2017, Mastercard lançait par exemple plusieurs
+           nouvelles API à destination des développeurs pour répondre aux entreprises « qui souhaitent un commerce cohérent, transparent et sécurisé ». </p>
+        <p>Encore une fois les API touchent à peu près tous les secteurs, toutes les activités. Et nous avons pléthore d’exemples qui traduisent tous une envie d’ouverture, de transparence et d’accélération de l’innovation.</p>
+       
+      <H1><strong>Différents types de comptes</strong> </H1>
+      <p> RGI(Référentiel général d'Intéropérabilité) est une platforme d'homogénéité et de codification unique des localités térritoriales du BURKINA FASO; 
+        De ce fait pour acceder à ces informations RGI vous proposes plusieurs comptes à savoire: 
+        <li> <strong> Le compte Admin: </strong>  Ce compte permet de gérer les comptes de tout les utilisateurs voulant profiter de la 
+          platforme. Il a tout les droits sur l'applications c'est à dire activer, désactiver, supprimer et même créer un compte, il peut 
+          s'informer sur les localités territoriales sans toute fois les modifier" </li>
+          <br>
+        <li> <strong>Le compte MATDS: </strong>  Pour commencer MATDS fait référence au Ministère de l'Administration Térritoriale, de la Decentralisation
+          et de la cohesion Sociale. Le compte MATDS gère les localités térritoriales ce qui signifie, qu'il peut ajouter, supprimer, modifier une région
+          , une province, un arrondissements, une commune, une localité.
+        </li>
+        <br>
+        <li> <strong> Le compte Gouvernorat:</strong>  Ce compte donne la possibilité de consulter, d'ajouter, de supprimer et de modifier une province mais peut consulter les régions sans toute fois les modifier </li>
+        <br>
+        <li> <strong>Le compte Mairie:</strong>  Ce compte a la possibilité de consulter, modifier, supprimer, ajouter un arrondissement ou une localité </li>
+        <br>
+        <li> <strong>Le compte Haut-Commissaiat:</strong>  Ce compte donne le droit de consulter, de modifier, de supprimer, d'ajouter une commune et donne lapossibilité de consulter les regions, les provinces, 
+        les localités, les arrondissements</li>
+        <br>
+      
+      </p>
+      <H1><strong>Comment se connecter ?</strong> </H1>
+        <p>Avant de vouloir vous connecter repondez à une question.</p>
+        <p><strong> Avez-vous un compte ?</strong></p>
+          <li>Si oui, veuillez rentrer votre Non d'utilisateur et votre mot de passe dans les champs indiqués.</li>
+          <li>Si non, Veuillez créer un compte en cliquant sur création de compte, ensuite remplissez tout les champs qui vous seront proposés.</li>
+        <br>
+          <p>Apres la création de votre compte veuillez patienter pour que l'admin valide et active votre compte. Vous recevrez ensuite un mail contenant vos identifiants pour vous connecter et profiter largement de notre platforme.</p>
+      
+    
+</div>

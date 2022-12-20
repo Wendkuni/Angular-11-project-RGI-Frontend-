@@ -1,0 +1,56 @@
+<mat-card style="margin-bottom: 10px;">
+  <mat-card-title>Profile de la structure</mat-card-title>
+</mat-card>
+<!-- <mk-alert backgroundColor="warning">
+  <h4><i class="icon fa fa-info"></i>
+    Information!
+  </h4>
+  Cette page afficher les informaions de la structure conserner par l'utilisateur
+</mk-alert> -->
+<mat-card>
+<form >
+  <mat-form-field appearance="fill">
+    <mat-label>Nom Structure</mat-label>
+    <input matInput   value="{{user.nomStructure}}" disabled class="desactive">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Type Structure</mat-label>
+    <input matInput value="{{user.structure}}" disabled class="desactive">
+  </mat-form-field>
+
+
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Code Postal</mat-label>
+    <input matInput value="{{user.codePostal}}" disabled class="desactive">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput  placeholder="Email" value="{{user.email}}" disabled class="desactive">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Site Web</mat-label>
+    <input matInput  placeholder="Site Web" value="{{user.siteweb}}" disabled class="desactive">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Contact</mat-label>
+    <input matInput  placeholder="Contact" value="{{user.contacte}}" disabled class="desactive">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Nom application</mat-label>
+    <input matInput placeholder="Nom application" disabled value="{{user.appName}}" class="desactive">
+  </mat-form-field>
+
+  <mat-form-field class="Description" appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea matInput  placeholder="Ex. Description de l'application" value="{{user.description}}" disabled class="desactive"></textarea>
+  </mat-form-field>
+</form>
+<mat-card-actions align="end" >
+  <button mat-raised-button color="primary" (click)="register()" >Modifier</button>
+</mat-card-actions>
+</mat-card>

@@ -1,0 +1,59 @@
+<button mat-raised-button color="primary"(click)="addLocalite()" *ngIf="isMairie"><mat-icon>add</mat-icon></button>
+<mat-form-field class="example-full-width">
+  <mat-icon matPrefix class="icon-24">search</mat-icon>
+  <mat-label>RECHERCHE GENERAL</mat-label>
+  <input [(ngModel)]="rechercheGeneral" (keyup)="recherche()"  matInput>
+  <mat-icon *ngIf="rechercheGeneral!=''" matSuffix (click)="annulerRechercheGeneral()">close</mat-icon>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="code">
+      <th mat-header-cell *matHeaderCellDef> Code </th>
+      <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="libelle">
+      <th mat-header-cell *matHeaderCellDef> Libelle </th>
+      <td mat-cell *matCellDef="let element"> {{element.libelle}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef> Type </th>
+      <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+
+
+    <ng-container matColumnDef="arrondissement">
+      <th mat-header-cell *matHeaderCellDef> Arrondissement </th>
+      <td mat-cell *matCellDef="let element"> {{element.arrondissement.libelle}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="option">
+      <th mat-header-cell *matHeaderCellDef> Options </th>
+      <td mat-cell *matCellDef="let element"><button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+        <mat-menu #menu="matMenu">
+          <button mat-icon-button color="primary" (click)="edit(element)"><mat-icon>edit</mat-icon></button>
+          <button mat-icon-button color="warn" (click)="delete(element)"><mat-icon>delete</mat-icon></button>
+        </mat-menu></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

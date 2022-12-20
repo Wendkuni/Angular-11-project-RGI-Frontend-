@@ -1,0 +1,8 @@
+<h2 mat-card-title>SUPPRIMER UN ARRONDISSEMENT</h2>
+<mat-dialog-content style="text-align: center;">
+<p>Voulez-vous supprimer l'arrondissement : <b>{{data.arrondissement.libelle}}</b></p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button  mat-raised-button color="warn" mat-dialog-close (click)="supprime()">Confirmer</button>
+  <button mat-raised-button color="primary" mat-dialog-close>Non merci</button>
+</mat-dialog-actions>

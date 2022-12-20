@@ -1,0 +1,29 @@
+<div class="navbar-custom-menu">
+  <ul class="nav navbar-nav">
+    <li mk-dropdown type="list" [isWrapper]="false" class="user user-menu">
+      <mk-dropdown-toggle>
+        <a #toggleElement>
+          <img src="assets/img/avatar.png" class="user-image" alt="User Image">
+          <span class="hidden-xs">{{user.username}}</span>
+        </a>
+      </mk-dropdown-toggle>
+      <mk-dropdown-menu>
+        <li class="user-header">
+          <img src="assets/img/avatar.png" class="img-circle" alt="User Image">
+
+          <p>
+            {{user.nom |uppercase}} {{user.prenom}}
+          </p>
+        </li>
+        <li class="user-footer">
+          <div class="pull-left">
+            <button mat-raised-button color="primary" (click)="profileA()">Profile</button>
+          </div>
+          <div class="pull-right">
+            <button mat-raised-button color="warn" (click)="deconnection()">Deconnection</button>
+          </div>
+        </li>
+      </mk-dropdown-menu>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,247 @@
+<mat-dialog-actions align="end" style="margin-bottom: 10px;">
+  <button mat-raised-button (click)="reset()">RESET
+    <mat-icon mat-raised-button>close</mat-icon>
+  </button>
+</mat-dialog-actions>
+<mat-dialog-content>
+  <mat-horizontal-stepper linear #stepper>
+  <mat-step [stepControl]="firstFormGroup" >
+      <mat-card-content>
+      <form [formGroup]="firstFormGroup" #form1="ngForm">
+      <ng-template matStepLabel>Infos Structure</ng-template>
+
+      <mat-form-field appearance="outline" *ngIf="!isModif">
+        <mat-label>Role</mat-label>
+        <mat-select formControlName="role" disableRipple >
+          <mat-option value="GOUVERNORAT" (click)="recupTerritoire('GOUVERNORAT')">Gouvernorat</mat-option>
+          <mat-option value="HAUT_COMMISSARIAT" (click)="recupTerritoire('HAUT-COMMISSARIAT')">Haut-Comissariat</mat-option>
+          <mat-option value="MAIRIE" (click)="recupTerritoire('MAIRIE')">Mairie</mat-option>
+          <mat-option value="APPLICATIF" (click)="recupTerritoire('APPLICATIF')">Applicative</mat-option>
+          <mat-option value="MATDS" (click)="recupTerritoire('APPLICATIF')">MATDS</mat-option>
+
+        </mat-select>
+      </mat-form-field>
+    <mat-form-field class="example-full-width" *ngIf="isTerritoire && !isModif" appearance="outline" >
+      <input type="text"
+             placeholder="Territoire"
+             aria-label="Number"
+             matInput
+             formControlName="territoire"
+             [matAutocomplete]="auto">
+      <mat-autocomplete autoActiveFirstOption=true #auto="matAutocomplete">
+        <mat-option *ngFor="let option of regionOptions | async" [value]="option.libelle">
+          {{option.libelle}}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error *ngIf="(firstFormGroup.get('territoire').touched && firstFormGroup.get('territoire').invalid)">
+        La region selectionner n'existe pas desoler
+      </mat-error>
+    </mat-form-field >
+
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Type Structure</mat-label>
+               <mat-select formControlName="typeStructure" disableRipple >
+                 <mat-option value="public">Public</mat-option>
+                 <mat-option value="privé">Privé</mat-option>
+              </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Nom Structure</mat-label>
+        <input matInput formControlName="nomStructure" placeholder="nom structure"
+               required>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Code Postal</mat-label>
+        <input matInput formControlName="codePostal" placeholder="Code Postal "
+               required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email de la structure</mat-label>
+        <input matInput formControlName="email" placeholder="Email"
+               required>
+        <mat-error *ngIf="secondFormGroup.hasError('email') && !secondFormGroup.hasError('required')">
+        </mat-error>
+        <mat-error *ngIf="secondFormGroup.hasError('required')">
+           <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Site Web</mat-label>
+        <input matInput formControlName="siteWeb" placeholder="Site Web"
+               required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Contact de la structure</mat-label>
+        <input matInput formControlName="contact" placeholder="Contact" type="tel" required>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Nom application</mat-label>
+        <input matInput formControlName="appName" placeholder="Nom application"
+               required>
+      </mat-form-field>
+
+      <mat-form-field class="Description" appearance="outline" >
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" placeholder="Ex. Description de l'application"></textarea>
+      </mat-form-field>
+
+      <mat-card align="end">
+        <button  mat-raised-button color="primary"   mat-button matStepperNext [disabled]="form1.invalid">SUIVANT</button>
+        <button mat-raised-button color="warn" [mat-dialog-close]>Annuler</button>
+      </mat-card >
+    </form>
+
+     </mat-card-content>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" >
+      <form [formGroup]="secondFormGroup" #form2="ngForm">
+      <ng-template matStepLabel> Infos Contact </ng-template>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Nom d'utilisateur</mat-label>
+        <mat-icon matPrefix>account_circle</mat-icon>
+        <input matInput formControlName="userName" placeholder="userName"
+               required>
+      </mat-form-field>
+     <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Nom</mat-label>
+        <mat-icon matPrefix>perm_identity</mat-icon>
+        <input matInput formControlName="nom" placeholder="nom "
+               required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Prénom</mat-label>
+        <mat-icon matPrefix>perm_identity</mat-icon>
+        <input matInput formControlName="prenom" placeholder="prenom"
+               required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Téléphone professionnel</mat-label>
+        <mat-icon matPrefix>phone</mat-icon>
+        <input matInput formControlName="telephone" placeholder="telephone"  type="tel" required>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email personnel</mat-label>
+        <mat-icon matPrefix>mail_outline</mat-icon>
+        <input matInput formControlName="emailP" placeholder="emailP" required>
+        <mat-error *ngIf="firstFormGroup.hasError('emailP') && !firstFormGroup.hasError('required')">
+        </mat-error>
+        <mat-error *ngIf="firstFormGroup.hasError('required')">
+        <strong>required</strong>
+              </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Pays</mat-label>
+        <mat-icon matPrefix>location_on</mat-icon>
+        <input matInput formControlName="pays" placeholder="pays" required>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Ville</mat-label>
+        <mat-icon matPrefix>pin_drop</mat-icon>
+          <input matInput formControlName="ville" placeholder="ville" required>
+       </mat-form-field>
+
+       <mat-card align="end">
+        <button mat-raised-button color="accent"   mat-button matStepperPrevious>PRECEDENT</button>
+        <button mat-raised-button color="primary" matStepperNext [disabled]="form2.invalid">SUIVANT</button>
+        <button mat-raised-button color="warn" [mat-dialog-close]>ANNULLER</button>
+       </mat-card >
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel >Finalisez vôtre inscription </ng-template>
+    <mat-card-content>
+      <mat-card-subtitle> Merci d'avoir remplit tout les champs, veuillez vérifier vos informations avant de valider votre compte, si elles sont correcte cliquer sur
+        VALIDER dans le cas contraire sur RETOUR pour revenir en arrière et modifier vos informations.
+      </mat-card-subtitle>
+
+
+      <form [formGroup]="secondFormGroup"  >
+        <mat-form-field  appearance="outline">
+          <mat-label>Nom d'utilisateur</mat-label>
+           <input matInput disabled value="{{secondFormGroup.get('userName').value}}" class="forme">
+         </mat-form-field>
+
+         <mat-form-field appearance="outline">
+          <mat-label>Nom</mat-label>
+          <input matInput disabled value="{{secondFormGroup.get('nom').value}}" class="forme">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Prénom</mat-label>
+          <input matInput disabled value="{{secondFormGroup.get('prenom').value}}" class="forme">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email personnel</mat-label>
+          <input matInput disabled value="{{secondFormGroup.get('emailP').value}}" class="forme">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Téléphone professionnel</mat-label>
+          <input matInput disabled value="{{secondFormGroup.get('telephone').value}}" class="forme">
+        </mat-form-field>
+
+
+        </form>
+        <form [formGroup]="firstFormGroup">
+          <mat-form-field appearance="outline">
+            <mat-label>Type Structure</mat-label>
+            <input matInput disabled value="{{firstFormGroup.get('typeStructure').value}}" class="forme">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Nom Structure</mat-label>
+            <input matInput disabled value="{{firstFormGroup.get('nomStructure').value}}" class="forme">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Email de la structure</mat-label>
+            <input matInput disabled value="{{firstFormGroup.get('email').value}}" class="forme">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Nom application</mat-label>
+            <input matInput disabled value="{{firstFormGroup.get('appName').value}}" class="forme">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Code Postal</mat-label>
+            <input matInput  disabled value="{{firstFormGroup.get('codePostal').value}}" class="forme">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Contact de la structure</mat-label>
+            <input matInput disabled value="{{firstFormGroup.get('contact').value}}" class="forme">
+
+          </mat-form-field>
+
+        </form>
+      </mat-card-content>
+        <mat-card align="end">
+            <button mat-raised-button color="accent"  mat-button matStepperPrevious>PRECENDENT</button>
+            <button mat-raised-button
+              color="primary" mat-button
+              (click)="openSubmitSnackbar()" [mat-dialog-close]
+                [disabled]="form1.invalid || form2.invalid" class="enregistrer">VALIDER</button>
+                <button mat-raised-button color="warn" [mat-dialog-close]>ANNULLER</button>
+        </mat-card>
+  </mat-step>
+</mat-horizontal-stepper>
+
+</mat-dialog-content>

@@ -1,0 +1,139 @@
+
+  <button mat-raised-button color="primary"  (click)="updateOrAdd(null)"><mat-icon>add</mat-icon></button>
+  <mat-form-field class="example-full-width">
+    <mat-icon matPrefix class="icon-24">search</mat-icon>
+    <mat-label>RECHERCHE GENERAL</mat-label>
+    <input [(ngModel)]="rechercheGeneral" (keyup)="recherche()"  matInput>
+    <mat-icon *ngIf="rechercheGeneral!=''" matSuffix (click)="annulerRechercheGeneral()">close</mat-icon>
+  </mat-form-field>
+    <button matTooltip="permettre de supprimer certains Champs" mat-button style="float: right;" color="primary" [matMenuTriggerFor]="menu"><mat-icon>playlist_add</mat-icon></button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item *ngFor="let e of listeAffiche">
+          <span>{{e.value }}</span>
+          <mat-slide-toggle (change)="addDeleteColumn($event, e.value )" [checked]="e.check"></mat-slide-toggle>
+      </button>
+    </mat-menu>
+
+    <div class="example-container mat-elevation-z8">
+      <mat-table #table [dataSource]="dataSource" [class.isMobile]="true">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="username">
+          <mat-header-cell *matHeaderCellDef>UserName </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <span class="mobile-label">UserName : </span>
+            {{element.username}}
+          </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="nom">
+          <mat-header-cell *matHeaderCellDef> Nom </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <span class="mobile-label">Nom :</span>
+            {{element.nom}}
+          </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="prenom">
+          <mat-header-cell *matHeaderCellDef> Prenom </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <span class="mobile-label">Prenom:</span>
+            {{element.prenom}}
+          </mat-cell>
+        </ng-container>
+
+        <!-- Symbol Column -->
+
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <span class="mobile-label">Email:</span>
+            {{element.email}}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <span class="mobile-label">Status :</span>
+            <mat-slide-toggle matTooltip="savoir si votre compte est activer ou desactiver"
+            [checked]="isCheck(element)" (click)="activeOrDesactive(element)" [disabled]="true"></mat-slide-toggle>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef> Options </mat-header-cell>
+          <mat-cell *matCellDef="let element"><button mat-button [matMenuTriggerFor]="menu">
+            <span class="mobile-label">Options :</span>
+            <mat-icon>more_vert</mat-icon>
+          </button>
+            <mat-menu #menu="matMenu">
+              <button mat-icon-button color="primary" (click)="updateOrAdd(element)"><mat-icon>edit</mat-icon> Modifier</button><br/>
+              <button mat-icon-button color="warn" (click)="deleteCompte(element)"><mat-icon>delete</mat-icon> Supprimer</button>
+            </mat-menu></mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
+      </mat-table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+
+<!--
+   <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
+
+
+        <ng-container matColumnDef="username">
+          <th mat-header-cell *matHeaderCellDef> UserName </th>
+          <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="nom">
+          <th mat-header-cell *matHeaderCellDef> Nom </th>
+          <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="prenom">
+          <th mat-header-cell *matHeaderCellDef> Prenom </th>
+          <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="structure">
+          <th mat-header-cell *matHeaderCellDef> Nom Structure </th>
+          <td mat-cell *matCellDef="let element">{{element.nom}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email User </th>
+          <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Options </th>
+          <td mat-cell *matCellDef="let element"><button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+            <mat-menu #menu="matMenu">
+              <button mat-icon-button color="primary" ><mat-icon>edit</mat-icon></button>
+              <button mat-icon-button color="warn"><mat-icon>delete</mat-icon></button>
+            </mat-menu></td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>-->

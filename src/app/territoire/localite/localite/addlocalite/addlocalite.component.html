@@ -1,0 +1,56 @@
+<h2 mat-dialog-title>Modifier la localite </h2>
+<mat-dialog-content>
+  <div class="fromD">
+  <form [formGroup]="formulaireLocalite" #formProvince="ngForm">
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Arrondissement</mat-label>
+      <input type="text"
+             placeholder="libelle arrondissement"
+             aria-label="Number"
+             matInput
+             formControlName="arrondissement"
+             [matAutocomplete]="auto">
+      <mat-autocomplete autoActiveFirstOption=true #auto="matAutocomplete">
+        <mat-option *ngFor="let option of arrondissemnentOptions | async" [value]="option.libelle">
+          {{option.libelle}}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error *ngIf="formulaireLocalite.get('arrondissement').touched && formulaireLocalite.get('arrondissement').invalid">
+        L'arrondissement selectionner n'existe pas desoler
+      </mat-error>
+    </mat-form-field>
+
+    <br/><br/>
+    <mat-form-field appearance="outline">
+      <mat-label>code </mat-label>
+      <input matInput type="text" formControlName="code">
+      <mat-error *ngIf="formulaireLocalite.get('code').touched && formulaireLocalite.get('code').invalid">
+        La longueur doit etre au moins superieur deux(2)
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Libelle</mat-label>
+      <input matInput formControlName="libelle">
+      <mat-error *ngIf="formulaireLocalite.get('libelle').touched && formulaireLocalite.get('libelle').invalid">
+        remplisser le libelle de la localite
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" >
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="type" >
+        <mat-option value="Secteur">Secteur</mat-option>
+        <mat-option value="Village">Village</mat-option>
+      </mat-select>
+    </mat-form-field>
+</form>
+</div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button  mat-raised-button color="warn" mat-dialog-close>ANNULER</button>
+  <button mat-raised-button class="Bcolor" (click)="ngOnSubmit()" [disabled]="formProvince.invalid"
+  mat-dialog-close>
+    CONFIRMER</button>
+</mat-dialog-actions>

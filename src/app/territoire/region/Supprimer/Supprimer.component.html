@@ -1,0 +1,8 @@
+<h2 mat-card-title> SUPPRIMER UNE PROVINCE</h2>
+<mat-dialog-content style ="text-align: center;">
+    <p>Voulez vous supprimer la region: <b> {{data.region.lielle}}</b></p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-raised-button (click)="supprime()" color="warn" mat-dialog-close>SUPPRIMER</button>
+    <button mat-raised-button color="primary" mat-dialog-close>Non, Merci</button>
+</mat-dialog-actions>
